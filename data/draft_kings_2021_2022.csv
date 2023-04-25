@@ -1,0 +1,568 @@
+﻿Position,Name,Points,Salary,Reduction,Value,Ownership %,Place,week
+QB,Patrick Mahomes,36.28,8100,8.1,4.48,8.20%,1,1
+RB,Melvin Gordon,23.8,5300,5.3,4.49,2.00%,1,1
+RB,Joe Mixon,28,6200,6.2,4.52,16.00%,1,1
+WR,Tyreke Hill,40.1,8200,8.2,4.89,10.80%,1,1
+WR,Corey Davis,26.7,4900,4.9,5.45,12.20%,1,1
+WR,Marvin Jones,18.7,3600,3.6,5.19,17.90%,1,1
+TE,Travis Kelce,25.6,8300,8.3,3.08,16.30%,1,1
+FLEX,Marquez Calaway,2.4,3400,3.4,0.71,23.70%,1,1
+DEF,Bengals,5,2000,2,2.5,2.90%,1,1
+QB,Jameis Winston,29.62,5200,5.2,5.7,2.70%,2,1
+RB,Christian McCaffrey,27.7,9500,9.5,2.92,23.70%,2,1
+RB,Jamal Williams,25,4500,4.5,5.56,0.60%,2,1
+WR,Tyreke Hill,40.1,8200,8.2,4.89,10.80%,2,1
+WR,Sterling Shepard,27.3,5100,5.1,5.35,1.20%,2,1
+WR,Cole Beasley,14,4400,4.4,3.18,3.70%,2,1
+TE,Dallas Goedert,14.2,4800,4.8,2.96,2.40%,2,1
+FLEX,Tee Higgins,15.8,4700,4.7,3.36,12.50%,2,1
+DEF,Panthers,9,3600,3.6,2.5,3.20%,2,1
+QB,Patrick Mahomes,36.28,8100,8.1,4.48,8.20%,3,1
+RB,James White,12.1,4400,4.4,2.75,0.80%,3,1
+RB,Joe Mixon,28,6200,6.2,4.52,16.00%,3,1
+WR,Tyreke Hill,40.1,8200,8.2,4.89,10.80%,3,1
+WR,Deebo Samuel,35.9,5900,5.9,6.08,2.70%,3,1
+WR,Jaylen Waddle,16.1,3600,3.6,4.47,4.50%,3,1
+TE,Travis Kelce,25.6,8300,8.3,3.08,16.30%,3,1
+FLEX,Adam Humphries,3,3000,3,1,1.10%,3,1
+DEF,Colts,4,2300,2.3,1.74,3.90%,3,1
+QB,Joe Burrow,18.64,5700,5.7,3.27,3.00%,1,1
+RB,Melvin Gordon,23.8,5300,5.3,4.49,2.00%,1,1
+RB,Joe Mixon,28,6200,6.2,4.52,16.00%,1,1
+WR,Tyreke Hill,40.1,8200,8.2,4.89,10.80%,1,1
+WR,Deebo Samuel,35.9,5900,5.9,6.08,2.70%,1,1
+WR,Tee Higgins,15.8,4700,4.7,3.36,12.50%,1,1
+TE,Travis Kelce,25.6,8300,8.3,3.08,16.30%,1,1
+FLEX,Marvin Jones,18.7,3600,3.6,5.19,17.90%,1,1
+DEF,Cardinals,16,2100,2.1,7.62,1.30%,1,1
+QB,Patrick Mahomes,36.28,8100,8.1,4.48,8.20%,2,1
+RB,Chase Edmonds,14.6,4600,4.6,3.17,7.40%,2,1
+RB,Joe Mixon,28,6200,6.2,4.52,16.00%,2,1
+WR,Tyreke Hill,40.1,8200,8.2,4.89,10.80%,2,1
+WR,Jarvis Landry,19.4,6000,6,3.23,3.70%,2,1
+WR,Laviska Shenault,12.9,5000,5,2.58,6.80%,2,1
+TE,TJ Hockenson,25.7,4900,4.9,5.24,3.00%,2,1
+FLEX,Jamar Chase,23.9,4800,4.8,4.98,3.40%,2,1
+DEF,Cardinals,16,2100,2.1,7.62,1.30%,2,1
+QB,Jared Goff,32.92,5100,5.1,6.45,0.30%,3,1
+RB,Kareem Hunt,17.1,5500,5.5,3.11,4.50%,3,1
+RB,Joe Mixon,28,6200,6.2,4.52,16.00%,3,1
+WR,Tyreke Hill,40.1,8200,8.2,4.89,10.80%,3,1
+WR,AJ Brown,14.9,7100,7.1,2.1,9.20%,3,1
+WR,Jamar Chase,23.9,4800,4.8,4.98,3.40%,3,1
+TE,TJ Hockenson,25.7,4900,4.9,5.24,3.00%,3,1
+FLEX,Christian Kirk,24,4500,4.5,5.33,1.90%,3,1
+DEF,Panthers,9,3600,3.6,2.5,3.20%,3,1
+QB,Tom Brady,30.64,6900,6.9,4.44,13.40%,1,2
+RB,Derrick Henry,50.7,8300,8.3,6.11,7.00%,1,2
+RB,Leonard Fournette,11.6,5100,5.1,2.27,4.80%,1,2
+WR,Tyler Lockett,34.8,7200,7.2,4.83,8.60%,1,2
+WR,Marvin Jones,17.5,4700,4.7,3.72,4.70%,1,2
+WR,Cooper Kupp,39.8,6000,6,6.63,20.30%,1,2
+TE,Rob Gronkowski,19.9,4700,4.7,4.23,17.80%,1,2
+FLEX,Rondale Moore,27.4,4000,4,6.85,2.40%,1,2
+DEF,Cardinals,1,2900,2.9,0.34,8.90%,1,2
+QB,Baker Mayfield,18.52,6000,6,3.09,3.00%,2,2
+RB,Derrick Henry,50.7,8300,8.3,6.11,7.00%,2,2
+RB,Devin Singletary,17.1,4900,4.9,3.49,1.60%,2,2
+WR,Tyler Lockett,34.8,7200,7.2,4.83,8.60%,2,2
+WR,Mike Williams,22.1,6100,6.1,3.62,10.90%,2,2
+WR,Cooper Kupp,39.8,6000,6,6.63,20.30%,2,2
+TE,Rob Gronkowski,19.9,4700,4.7,4.23,17.80%,2,2
+FLEX,Marvin Jones,17.5,4700,4.7,3.72,4.70%,2,2
+DEF,Vikings,12,2100,2.1,5.71,8.90%,2,2
+QB,Kyler Murray,38.1,8200,8.2,4.65,6.50%,3,2
+RB,Derrick Henry,50.7,8300,8.3,6.11,7.00%,3,2
+RB,Darrel Henderson,17.2,5700,5.7,3.02,6.40%,3,2
+WR,Rondale Moore,27.4,4000,4,6.85,2.40%,3,2
+WR,Mike Williams,22.1,6100,6.1,3.62,10.90%,3,2
+WR,Cortland Sutton,27.9,5200,5.2,5.37,2.80%,3,2
+TE,Rob Gronkowski,19.9,4700,4.7,4.23,17.80%,3,2
+FLEX,KJ Osborn,20.1,3300,3.3,6.09,2.30%,3,2
+DEF,Rams,8,4500,4.5,1.78,1.40%,3,2
+QB,Josh Allen,40.22,7000,7,5.75,5.40%,1,3
+RB,Alexander Mattison,26.1,6000,6,4.35,14.80%,1,3
+RB,Deandre Swift,23.7,5800,5.8,4.09,6.30%,1,3
+WR,DK Metcalf,25.7,7300,7.3,3.52,13.60%,1,3
+WR,Justin Jefferson,29.8,7200,7.2,4.14,6.70%,1,3
+WR,Cole Beasley,20.8,4800,4.8,4.33,3.30%,1,3
+TE,Logan Thomas,13.2,4700,4.7,2.81,1.20%,1,3
+FLEX,Emmanuel Sanders,26.4,4200,4.2,6.29,4.20%,1,3
+DEF,Cardinals,18,3000,3,6,16.80%,1,3
+QB,Josh Allen,40.22,7000,7,5.75,5.40%,2,3
+RB,Antonio Gibson,17.4,5900,5.9,2.95,3.00%,2,3
+RB,Clyde Edwards ,20.9,4800,4.8,4.35,16.10%,2,3
+WR,Mike Williams,36.2,6400,6.4,5.66,9.20%,2,3
+WR,Justin Jefferson,29.8,7200,7.2,4.14,6.70%,2,3
+WR,Tyler Boyd,13.6,4700,4.7,2.89,10.00%,2,3
+TE,Mark Andrews,18.9,5000,5,3.78,6.10%,2,3
+FLEX,Emmanuel Sanders,26.4,4200,4.2,6.29,4.20%,2,3
+DEF,Broncos,19,4300,4.3,4.42,7.50%,2,3
+QB,Matt Stafford,32.52,6400,6.4,5.08,7.90%,3,3
+RB,Alexander Mattison,26.1,6000,6,4.35,14.80%,3,3
+RB,Austin Ekeler,22.7,7200,7.2,3.15,20.60%,3,3
+WR,Cooper Kupp,30.6,6800,6.8,4.5,33.10%,3,3
+WR,Chris Godwin,19.6,6100,6.1,3.21,17.40%,3,3
+WR,Mike Williams,36.2,6400,6.4,5.66,9.20%,3,3
+TE,Tyler Conklin,20,2900,2.9,6.9,0.60%,3,3
+FLEX,Cordarralle Patterson,16.2,4600,4.6,3.52,8.40%,3,3
+DEF,Cardinals,18,3000,3,6,16.80%,3,3
+QB,Dak Prescott,27.02,6700,6.7,4.03,6.8%,1,4
+RB,Saquan Barkley,29.60,6700,6.7,4.42,2.4%,1,4
+RB,David Montgomery,25.60,5800,5.8,4.41,20.2%,1,4
+WR,DJ Moore,34.90,6600,6.6,5.29,17.6%,1,4
+WR,Deebo Samuel,38.70,6500,6.5,5.95,10.1%,1,4
+WR,Corey Davis,24.10,5000,5,4.82,9.9%,1,4
+TE,Dalton Schultz,17.80,3400,3.4,5.24,9.6%,1,4
+FLEX,Cordarelle Patterson,34.60,4900,4.9,7.06,6.7%,1,4
+DEF,Bills,23.00,4300,4.3,5.35,5.3%,1,4
+QB,Tyler Heinicke,27.90,5900,5.9,4.73,4.4%,2,4
+RB,Derrick Henry,28.70,8800,8.8,3.26,32.7%,2,4
+RB,Cordarelle Patterson,34.60,4900,4.9,7.06,6.7%,2,4
+WR,Terry McLaurin,33.30,6900,6.9,4.83,7.5%,2,4
+WR,Deebo Samuel,38.70,6500,6.5,5.95,10.1%,2,4
+WR,Corey Davis,24.10,5000,5,4.82,9.9%,2,4
+TE,Dalton Schultz,17.80,3400,3.4,5.24,9.6%,2,4
+FLEX,Kenneth Gainwell,20.90,4300,4.3,4.86,0.7%,2,4
+DEF,Bills,23.00,4300,4.3,5.35,5.3%,2,4
+QB,Sam Darnold,36.54,6000,6,6.09,7.0%,3,4
+RB,Chubba Hubbard,9.10,5900,5.9,1.54,11.8%,3,4
+RB,David Montgomery,25.60,5800,5.8,4.41,20.2%,3,4
+WR,Terry McLaurin,33.30,6900,6.9,4.83,7.5%,3,4
+WR,Deebo Samuel,38.70,6500,6.5,5.95,10.1%,3,4
+WR,Diontae Johnson,24.20,6200,6.2,3.90,4.7%,3,4
+TE,Dalton Schultz,17.80,3400,3.4,5.24,9.6%,3,4
+FLEX,Cordarelle Patterson,34.60,4900,4.9,7.06,6.7%,3,4
+DEF,Bills,23.00,4300,4.3,5.35,5.3%,3,4
+QB,Tom Brady,40.74,7400,7.4,5.51,6.4%,1,5
+RB,Chuba Hubbard,21.40,6000,6,3.57,6.4%,1,5
+RB,Alex Mattison,30.30,5500,5.5,5.51,35.4%,1,5
+WR,Davante Adams,40.60,8200,8.2,4.95,23.6%,1,5
+WR,Mike Evans,32.30,6800,6.8,4.75,5.4%,1,5
+WR,Antonio Brown,34.40,5200,5.2,6.62,14.7%,1,5
+TE,Hunter Henry,19.50,3700,3.7,5.27,4.5%,1,5
+FLEX,Kadarius Toney,32.60,4000,4,8.15,11.3%,1,5
+DEF,Vikings,9.00,3000,3,3.00,8.1%,1,5
+QB,Tom Brady,40.74,7400,7.4,5.51,6.4%,2,5
+RB,James Robinson,24.70,6000,6,4.12,13.3%,2,5
+RB,Alex Mattison,30.30,5500,5.5,5.51,35.4%,2,5
+WR,Davante Adams,40.60,8200,8.2,4.95,23.6%,2,5
+WR,Mike Evans,32.30,6800,6.8,4.75,5.4%,2,5
+WR,Antonio Brown,34.40,5200,5.2,6.62,14.7%,2,5
+TE,Mike Gesicki,8.30,4200,4.2,1.98,16.8%,2,5
+FLEX,Kadarius Toney,32.60,4000,4,8.15,11.3%,2,5
+DEF,Eagles,12.00,2200,2.2,5.45,7.5%,2,5
+QB,Tom Brady,40.74,7400,7.4,5.51,6.4%,3,5
+RB,Nick Chubb,27.00,6700,6.7,4.03,8.2%,3,5
+RB,Alex Mattison,30.30,5500,5.5,5.51,35.4%,3,5
+WR,Mike Williams,39.50,7200,7.2,5.49,3.5%,3,5
+WR,Mike Evans,32.30,6800,6.8,4.75,5.4%,3,5
+WR,Antonio Brown,34.40,5200,5.2,6.62,14.7%,3,5
+TE,Mike Gesicki,8.30,4200,4.2,1.98,16.8%,3,5
+FLEX,Kadarius Toney,32.60,4000,4,8.15,11.3%,3,5
+DEF,Vikings,9.00,3000,3,3.00,8.1%,3,5
+QB,Baker Mayfield,15.16,5900,5.9,2.57,1.7%,1,6
+RB,Jonathan Taylor,31.80,6600,6.6,4.82,25.0%,1,6
+RB,Joe Mixon,26.30,6400,6.4,4.11,15.0%,1,6
+WR,Ceedee Lamb,39.10,6500,6.5,6.02,5.3%,1,6
+WR,Adam Thielen,32.80,5800,5.8,5.66,5.6%,1,6
+WR,Donovan Jones,29.10,3500,3.5,8.31,0.8%,1,6
+TE,Travis Kelce,17.90,7000,7,2.56,21.9%,1,6
+FLEX,Noah Fant,24.70,4800,4.8,5.15,2.7%,1,6
+DEF,Colts,15.00,3500,3.5,4.29,14.9%,1,6
+QB,Matthew Stafford,26.24,6700,6.7,3.92,11.1%,2,6
+RB,Jonathan Taylor,31.80,6600,6.6,4.82,25.0%,2,6
+RB,Joe Mixon,26.30,6400,6.4,4.11,15.0%,2,6
+WR,Ceedee Lamb,39.10,6500,6.5,6.02,5.3%,2,6
+WR,Adam Thielen,32.80,5800,5.8,5.66,5.6%,2,6
+WR,Cooper Kupp,37.00,7900,7.9,4.68,18.8%,2,6
+TE,Tyler Higbee,8.60,4400,4.4,1.95,3.7%,2,6
+FLEX,Ricky Seals Jones,15.80,3000,3,5.27,25.8%,2,6
+DEF,Cardinals,12.00,2700,2.7,4.44,6.2%,2,6
+QB,Joe Burrow,23.84,6300,6.3,3.78,7.3%,3,6
+RB,Jonathan Taylor,31.80,6600,6.6,4.82,25.0%,3,6
+RB,Darrel Henderson,24.70,6000,6,4.12,26.3%,3,6
+WR,Ceedee Lamb,39.10,6500,6.5,6.02,5.3%,3,6
+WR,Adam Thielen,32.80,5800,5.8,5.66,5.6%,3,6
+WR,Henry Ruggs,18.70,5200,5.2,3.60,1.7%,3,6
+TE,Mark Andrews,17.80,5200,5.2,3.42,25.3%,3,6
+FLEX,Darrel Williams,23.90,4900,4.9,4.88,16.9%,3,6
+DEF,Colts,15.00,3500,3.5,4.29,14.9%,3,6
+QB,Matthew Stafford,30.16,7100,7.1,4.25,13.4%,1,7
+RB,Deandre Swift,28.40,6000,6,4.73,7.0%,1,7
+RB,Damien Harris,28.30,5700,5.7,4.96,12.6%,1,7
+WR,Cooper Kupp,40.60,8400,8.4,4.83,19.3%,1,7
+WR,Terry McLaurin,28.20,6900,6.9,4.09,4.1%,1,7
+WR,Chris Godwin,28.10,5900,5.9,4.76,25.9%,1,7
+TE,Foster Moreau,18.00,2500,2.5,7.20,2.0%,1,7
+FLEX,Van Jefferson,14.30,3500,3.5,4.09,4.3%,1,7
+DEF,Buccaneers,21.00,4000,4,5.25,2.8%,1,7
+QB,Matthew Stafford,30.16,7100,7.1,4.25,13.4%,2,7
+RB,Deandre Swift,28.40,6000,6,4.73,7.0%,2,7
+RB,Damien Harris,28.30,5700,5.7,4.96,12.6%,2,7
+WR,Cooper Kupp,40.60,8400,8.4,4.83,19.3%,2,7
+WR,Jamar Chase,37.10,6200,6.2,5.98,10.1%,2,7
+WR,Rashod Bateman,11.00,3400,3.4,3.24,16.6%,2,7
+TE,Kyle Pitts,26.30,5900,5.9,4.46,7.4%,2,7
+FLEX,Michael Carter,17.40,4800,4.8,3.63,1.9%,2,7
+DEF,Giants,17.00,2500,2.5,6.80,5.2%,2,7
+QB,Tua Tagovailoa,28.54,5500,5.5,5.19,8.3%,3,7
+RB,Brandon Bolden,19.90,4000,4,4.98,12.6%,3,7
+RB,Damien Harris,28.30,5700,5.7,4.96,12.6%,3,7
+WR,Cooper Kupp,40.60,8400,8.4,4.83,19.3%,3,7
+WR,Davante Adams,19.60,8900,8.9,2.20,19.0%,3,7
+WR,AJ Brown,30.30,6300,6.3,4.81,12.4%,3,7
+TE,Foster Moreau,18.00,2500,2.5,7.20,2.0%,3,7
+FLEX,Mike Evans,31.60,6500,6.5,4.86,10.6%,3,7
+DEF,Titans,17.00,2100,2.1,8.10,2.6%,3,7
+QB,Carson Wentz,20.34,5700,5.7,3.57,8.0%,1,8
+RB,Elijah Mitchell,22.70,5400,5.4,4.20,11.0%,1,8
+RB,Michael Carter,32.20,4900,4.9,6.57,6.0%,1,8
+WR,Cooper Kupp,27.50,9000,9,3.06,14.6%,1,8
+WR,AJ Brown,34.50,6900,6.9,5.00,14.5%,1,8
+WR,Michael Pittman,30.60,5300,5.3,5.77,26.4%,1,8
+TE,Pat Freiermuth,14.40,3600,3.6,4.00,4.5%,1,8
+FLEX,Chris Godwin,31.00,6400,6.4,4.84,24.6%,1,8
+DEF,Seahawks,13.00,2800,2.8,4.64,5.1%,1,8
+QB,Carson Wentz,20.34,5700,5.7,3.57,8.0%,2,8
+RB,Elijah Mitchell,22.70,5400,5.4,4.20,11.0%,2,8
+RB,Michael Carter,32.20,4900,4.9,6.57,6.0%,2,8
+WR,Cooper Kupp,27.50,9000,9,3.06,14.6%,2,8
+WR,AJ Brown,34.50,6900,6.9,5.00,14.5%,2,8
+WR,Michael Pittman,30.60,5300,5.3,5.77,26.4%,2,8
+TE,Dan Arnold,14.80,2800,2.8,5.29,10.7%,2,8
+FLEX,Chris Godwin,31.00,6400,6.4,4.84,24.6%,2,8
+DEF,Bills,10.00,3300,3.3,3.03,18.6%,2,8
+QB,Tom Brady,31.20,7400,7.4,4.22,8.0%,3,8
+RB,Nick Chubb,7.90,6800,6.8,1.16,7.4%,3,8
+RB,Michael Carter,32.20,4900,4.9,6.57,6.0%,3,8
+WR,Keenan Allen,19.70,6500,6.5,3.03,8.5%,3,8
+WR,AJ Brown,34.50,6900,6.9,5.00,14.5%,3,8
+WR,Michael Pittman,30.60,5300,5.3,5.77,26.4%,3,8
+TE,Dan Arnold,14.80,2800,2.8,5.29,10.7%,3,8
+FLEX,Chris Godwin,31.00,6400,6.4,4.84,24.6%,3,8
+DEF,Eagles,21.00,2700,2.7,7.78,2.8%,3,8
+QB,Justin Herbert,34.64,7000,7,4.95,3.5%,1,9
+RB,Nick Chubb,33.30,6700,6.7,4.97,21.1%,1,9
+RB,James Conner,40.30,5300,5.3,7.60,2.0%,1,9
+WR,Keenan Allen,25.40,6700,6.7,3.79,7.0%,1,9
+WR,Marquise Brown,23.60,6000,6,3.93,28.3%,1,9
+WR,Jaylen Waddle,16.30,5600,5.6,2.91,14.2%,1,9
+TE,Mike Gesicki,9.40,4900,4.9,1.92,15.7%,1,9
+FLEX,Zack Moss,4.40,5300,5.3,0.83,8.1%,1,9
+DEF,Browns,18.00,2500,2.5,7.20,3.0%,1,9
+QB,Lamar Jackson,35.64,7300,7.3,4.88,19.4%,2,9
+RB,Nick Chubb,33.30,6700,6.7,4.97,21.1%,2,9
+RB,Alvin Kamara,20.40,8200,8.2,2.49,19.1%,2,9
+WR,Christian Kirk,16.42,5300,5.3,3.10,4.2%,2,9
+WR,Tee Higgins,13.80,5300,5.3,2.60,12.6%,2,9
+WR,Jaylen Waddle,16.30,5600,5.6,2.91,14.2%,2,9
+TE,Tyler Conklin,9.50,3000,3,3.17,11.9%,2,9
+FLEX,James Conner,40.30,5300,5.3,7.60,2.0%,2,9
+DEF,Dolphins,17.00,3100,3.1,5.48,5.5%,2,9
+QB,Justin Herbert,34.64,7000,7,4.95,3.5%,3,9
+RB,Nick Chubb,33.30,6700,6.7,4.97,21.1%,3,9
+RB,Alvin Kamara,20.40,8200,8.2,2.49,19.1%,3,9
+WR,Keenan Allen,25.40,6700,6.7,3.79,7.0%,3,9
+WR,Marquise Brown,23.60,6000,6,3.93,28.3%,3,9
+WR,Devontae Smith,25.60,5200,5.2,4.92,3.0%,3,9
+TE,Tyler Conklin,9.50,3000,3,3.17,11.9%,3,9
+FLEX,Hunter Renfrow,17.90,4800,4.8,3.73,20.7%,3,9
+DEF,Chiefs,11.00,2300,2.3,4.78,20.6%,3,9
+QB,Josh Allen,24.94,7900,7.9,3.16,9.7%,1,10
+RB,De'Ernest Johnson,22.70,4700,4.7,4.83,48.4%,1,10
+RB,Mark Ingram,20.80,4500,4.5,4.62,26.2%,1,10
+WR,Keenan Allen,17.80,7000,7,2.54,8.5%,1,10
+WR,Stefon Diggs,33.20,7500,7.5,4.43,8.0%,1,10
+WR,Ceedee Lamb,28.60,7000,7,4.09,10.4%,1,10
+TE,Hunter Henry,19.70,4100,4.1,4.80,4.0%,1,10
+FLEX,Rhomandre Stevenson,30.40,4500,4.5,6.76,3.3%,1,10
+DEF,Eagles,15.00,2700,2.7,5.56,3.3%,1,10
+QB,Dak Prescott,26.34,6900,6.9,3.82,13.4%,2,10
+RB,De'Ernest Johnson,22.70,4700,4.7,4.83,48.4%,2,10
+RB,Ezekiel Elliot,21.76,7000,7,3.11,10.0%,2,10
+WR,Jerry Jeudy,11.10,5300,5.3,2.09,9.3%,2,10
+WR,Stefon Diggs,33.20,7500,7.5,4.43,8.0%,2,10
+WR,Ceedee Lamb,28.60,7000,7,4.09,10.4%,2,10
+TE,Hunter Henry,19.70,4100,4.1,4.80,4.0%,2,10
+FLEX,Mark Ingram,20.80,4500,4.5,4.62,26.2%,2,10
+DEF,Cowboys,23.00,3000,3,7.67,4.6%,2,10
+QB,Josh Allen,24.94,7900,7.9,3.16,9.7%,3,10
+RB,De'Ernest Johnson,22.70,4700,4.7,4.83,48.4%,3,10
+RB,Mark Ingram,20.80,4500,4.5,4.62,26.2%,3,10
+WR,Mike Evans,14.20,6900,6.9,2.06,34.0%,3,10
+WR,Stefon Diggs,33.20,7500,7.5,4.43,8.0%,3,10
+WR,Ceedee Lamb,28.60,7000,7,4.09,10.4%,3,10
+TE,Pat Freiermuth,7.10,3900,3.9,1.82,11.5%,3,10
+FLEX,Rhomandre Stevenson,30.40,4500,4.5,6.76,3.3%,3,10
+DEF,Cowboys,23.00,3000,3,7.67,4.6%,3,10
+QB,Cam Newton,26.16,5100,5.1,5.13,9.3%,1,11
+RB,Jonathan Taylor,56.40,8300,8.3,6.80,3.9%,1,11
+RB,Deandre Swift,25.60,7000,7,3.66,2.8%,1,11
+WR,Justin Jefferson,40.20,8100,8.1,4.96,3.0%,1,11
+WR,Terry McLaurin,24.30,7000,7,3.47,1.2%,1,11
+WR,Elijah Moore,32.60,4900,4.9,6.65,4.6%,1,11
+TE,Tommy Tremble,5.50,2500,2.5,2.20,0.1%,1,11
+FLEX,Miles Sanders,8.40,5000,5,1.68,0.7%,1,11
+DEF,Lions,11.00,2100,2.1,5.24,2.4%,1,11
+QB,Kirk Cousins,28.24,6100,6.1,4.63,2.2%,2,11
+RB,Jonathan Taylor,56.40,8300,8.3,6.80,3.9%,2,11
+RB,Mark Ingram,16.30,5400,5.4,3.02,24.4%,2,11
+WR,Justin Jefferson,40.20,8100,8.1,4.96,3.0%,2,11
+WR,Adam Thielen,22.20,6600,6.6,3.36,3.8%,2,11
+WR,Darnell Mooney,26.10,5200,5.2,5.02,4.3%,2,11
+TE,Zach Ertz,28.80,4800,4.8,6.00,1.4%,2,11
+FLEX,Austin Hooper,9.30,3200,3.2,2.91,1.3%,2,11
+DEF,Vikings,1.00,2300,2.3,0.43,1.8%,2,11
+QB,Aaron Rodgers,36.50,7000,7,5.21,5.1%,3,11
+RB,Jonathan Taylor,56.40,8300,8.3,6.80,3.9%,3,11
+RB,Jeff Wilson,6.80,5100,5.1,1.33,30.2%,3,11
+WR,Justin Jefferson,40.20,8100,8.1,4.96,3.0%,3,11
+WR,Davante Adams,33.50,8400,8.4,3.99,16.3%,3,11
+WR,Marquez Valdes Scantling,25.30,3700,3.7,6.84,3.8%,3,11
+TE,Ryan Griffin,6.90,2500,2.5,2.76,0.5%,3,11
+FLEX,Cole Beasley,6.30,4800,4.8,1.31,7.3%,3,11
+DEF,Texans,16.00,2000,2,8.00,4.7%,3,11
+QB,Matt Stafford,26.98,7100,7.1,3.80,3.5%,1,12
+RB,Joe Mixon,35.30,7500,7.5,4.71,11.8%,1,12
+RB,Leonard Fournette,47.10,6800,6.8,6.93,3.6%,1,12
+WR,Jaylen Waddle,31.70,5900,5.9,5.37,6.4%,1,12
+WR,Odell Beckham,19.10,5000,5,3.82,8.5%,1,12
+WR,Robby Anderson,2.50,4700,4.7,0.53,3.4%,1,12
+TE,Rob Gronkowski,22.30,4400,4.4,5.07,36.4%,1,12
+FLEX,Darrell Henderson,17.30,5800,5.8,2.98,14.2%,1,12
+DEF,Dolphins,23.00,2800,2.8,8.21,3.8%,1,12
+QB,Aaron Rodgers,29.28,6900,6.9,4.24,2.5%,2,12
+RB,Joe Mixon,35.30,7500,7.5,4.71,11.8%,2,12
+RB,Leonard Fournette,47.10,6800,6.8,6.93,3.6%,2,12
+WR,Adam Thielen,23.20,6700,6.7,3.46,7.8%,2,12
+WR,Randall Cobb,18.50,3700,3.7,5.00,1.7%,2,12
+WR,Quez Watkins,4.60,3500,3.5,1.31,0.8%,2,12
+TE,Rob Gronkowski,22.30,4400,4.4,5.07,36.4%,2,12
+FLEX,Cordarrelle Patterson,30.50,6500,6.5,4.69,6.5%,2,12
+DEF,Patriots,14.00,3900,3.9,3.59,9.8%,2,12
+QB,Justin Herbert,24.72,6600,6.6,3.75,10.1%,3,12
+RB,Joe Mixon,35.30,7500,7.5,4.71,11.8%,3,12
+RB,Leonard Fournette,47.10,6800,6.8,6.93,3.6%,3,12
+WR,Cooper Kupp,18.60,9600,9.6,1.94,7.9%,3,12
+WR,Odell Beckham,19.10,5000,5,3.82,8.5%,3,12
+WR,Marquez Valdes Scantling,9.00,4100,4.1,2.20,10.8%,3,12
+TE,Rob Gronkowski,22.30,4400,4.4,5.07,36.4%,3,12
+FLEX,Jack Doyle,20.10,3100,3.1,6.48,1.3%,3,12
+DEF,Dolphins,23.00,2800,2.8,8.21,3.8%,3,12
+QB,Gardner Minshew,18.78,4000,4,4.70,11.7%,1,13
+RB,Sony Michel,24.90,4300,4.3,5.79,20.8%,1,13
+RB,Jamal Williams,9.00,5400,5.4,1.67,22.5%,1,13
+WR,Justin Jefferson,38.60,8200,8.2,4.71,14.2%,1,13
+WR,Diontae Johnson,33.50,6800,6.8,4.93,14.2%,1,13
+WR,Chris Godwin,33.20,6600,6.6,5.03,17.6%,1,13
+TE,Dallas Goedert,31.50,4500,4.5,7.00,6.6%,1,13
+FLEX,George Kittle,42.60,5900,5.9,7.22,7.2%,1,13
+DEF,Rams,10.00,4000,4,2.50,5.8%,1,13
+QB,Tom Brady,32.62,7200,7.2,4.53,18.2%,2,13
+RB,Antonio Gibson,22.10,5700,5.7,3.88,32.1%,2,13
+RB,Miles Sanders,20.20,5200,5.2,3.88,10.6%,2,13
+WR,Justin Jefferson,38.60,8200,8.2,4.71,14.2%,2,13
+WR,Chris Godwin,33.20,6600,6.6,5.03,17.6%,2,13
+WR,Josh Reynolds,10.90,3400,3.4,3.21,13.2%,2,13
+TE,Dallas Goedert,31.50,4500,4.5,7.00,6.6%,2,13
+FLEX,George Kittle,42.60,5900,5.9,7.22,7.2%,2,13
+DEF,Dolphins,9.00,3300,3.3,2.73,24.5%,2,13
+QB,Gardner Minshew,18.78,4000,4,4.70,11.7%,3,13
+RB,Sony Michel,24.90,4300,4.3,5.79,20.8%,3,13
+RB,David Montgomery,28.10,5600,5.6,5.02,4.6%,3,13
+WR,Cooper Kupp,29.90,9000,9,3.32,19.1%,3,13
+WR,Chris Godwin,33.20,6600,6.6,5.03,17.6%,3,13
+WR,Hunter Renfrow,22.20,5800,5.8,3.83,24.0%,3,13
+TE,Dallas Goedert,31.50,4500,4.5,7.00,6.6%,3,13
+FLEX,George Kittle,42.60,5900,5.9,7.22,7.2%,3,13
+DEF,Dolphins,9.00,3300,3.3,2.73,24.5%,3,13
+QB,Josh Allen,42.22,7800,7.8,5.41,9.6%,1,14
+RB,Saquon Barkley,18.50,6000,6,3.08,13.3%,1,14
+RB,Rashad Penny,29.80,4800,4.8,6.21,2.3%,1,14
+WR,Jamar Chase,25.30,6900,6.9,3.67,10.7%,1,14
+WR,Hunter Renfrow,32.70,6100,6.1,5.36,14.0%,1,14
+WR,Cole Beasley,15.40,5000,5,3.08,9.7%,1,14
+TE,Mark Andrews,31.50,5900,5.9,5.34,7.2%,1,14
+FLEX,Robby Anderson,21.40,4300,4.3,4.98,1.6%,1,14
+DEF,Seahawks,6.00,3100,3.1,1.94,14.5%,1,14
+QB,Joe Burrow,25.22,6000,6,4.20,4.7%,2,14
+RB,Clyde Helaire,19.20,6100,6.1,3.15,8.9%,2,14
+RB,Rashad Penny,29.80,4800,4.8,6.21,2.3%,2,14
+WR,Jamar Chase,25.30,6900,6.9,3.67,10.7%,2,14
+WR,Tee Higgins,19.40,6400,6.4,3.03,4.0%,2,14
+WR,Josh Palmer,17.60,3000,3,5.87,5.1%,2,14
+TE,George Kittle,37.10,6900,6.9,5.38,6.8%,2,14
+FLEX,Mike Evans,21.10,6600,6.6,3.20,11.2%,2,14
+DEF,Chiefs,24.00,3300,3.3,7.27,3.6%,2,14
+QB,Joe Burrow,25.22,6000,6,4.20,4.7%,3,14
+RB,Leonard Fournette,26.20,7400,7.4,3.54,12.6%,3,14
+RB,Javonte Williams,21.30,5900,5.9,3.61,25.8%,3,14
+WR,Jamar Chase,25.30,6900,6.9,3.67,10.7%,3,14
+WR,Hunter Renfrow,32.70,6100,6.1,5.36,14.0%,3,14
+WR,Josh Palmer,17.60,3000,3,5.87,5.1%,3,14
+TE,George Kittle,37.10,6900,6.9,5.38,6.8%,3,14
+FLEX,Dawson Knox,19.00,5000,5,3.80,11.0%,3,14
+DEF,Browns,14.00,2700,2.7,5.19,9.8%,3,14
+QB,Tyler Huntley,35.90,5400,5.4,6.65,2.6%,1,15
+RB,Jeff Wilson,22.90,5000,5,4.58,12.8%,1,15
+RB,D'onta Foreman,18.50,5200,5.2,3.56,10.8%,1,15
+WR,Davante Adams,16.40,8900,8.9,1.84,34.9%,1,15
+WR,Brandin Cooks,32.20,5800,5.8,5.55,18.9%,1,15
+WR,Christian Kirk,24.40,5300,5.3,4.60,16.2%,1,15
+TE,Mark Andrews,38.60,6400,6.4,6.03,11.3%,1,15
+FLEX,Amon Ra St. Brown,23.50,5200,5.2,4.52,8.8%,1,15
+DEF,Texans,10.00,2800,2.8,3.57,3.7%,1,15
+QB,Tyler Huntley,35.90,5400,5.4,6.65,2.6%,2,15
+RB,Jeff Wilson,22.90,5000,5,4.58,12.8%,2,15
+RB,James Robinson,17.80,5400,5.4,3.30,52.0%,2,15
+WR,Davante Adams,16.40,8900,8.9,1.84,34.9%,2,15
+WR,Brandin Cooks,32.20,5800,5.8,5.55,18.9%,2,15
+WR,Devante Parker,16.80,4300,4.3,3.91,34.0%,2,15
+TE,Mark Andrews,38.60,6400,6.4,6.03,11.3%,2,15
+FLEX,Amon Ra St. Brown,23.50,5200,5.2,4.52,8.8%,2,15
+DEF,Cowboys,16.00,3600,3.6,4.44,15.4%,2,15
+QB,Tyler Huntley,35.90,5400,5.4,6.65,2.6%,3,15
+RB,James Robinson,17.80,5400,5.4,3.30,52.0%,3,15
+RB,D'onta Foreman,18.50,5200,5.2,3.56,10.8%,3,15
+WR,Deebo Samuel,18.90,8200,8.2,2.30,20.8%,3,15
+WR,Brandin Cooks,32.20,5800,5.8,5.55,18.9%,3,15
+WR,Christian Kirk,24.40,5300,5.3,4.60,16.2%,3,15
+TE,Mark Andrews,38.60,6400,6.4,6.03,11.3%,3,15
+FLEX,Amon Ra St. Brown,23.50,5200,5.2,4.52,8.8%,3,15
+DEF,Bills,7.00,3100,3.1,2.26,23.2%,3,15
+QB,Joe Burrow,41.10,5900,5.9,6.97,12.4%,1,16
+RB,Joe Mixon,31.50,6900,6.9,4.57,7.1%,1,16
+RB,Damien Harris,31.30,5600,5.6,5.59,4.0%,1,16
+WR,Jamar Chase,22.50,7100,7.1,3.17,13.8%,1,16
+WR,Tee Higgins,46.40,6200,6.2,7.48,9.3%,1,16
+WR,Braxton Berrios,15.00,3500,3.5,4.29,8.3%,1,16
+TE,Mark Andrews,29.50,7000,7,4.21,8.7%,1,16
+FLEX,Justin Jackson,35.20,4200,4.2,8.38,44.6%,1,16
+DEF,Eagles,16.00,3600,3.6,4.44,9.2%,1,16
+QB,Joe Burrow,41.10,5900,5.9,6.97,12.4%,2,16
+RB,Justin Jackson,35.20,4200,4.2,8.38,44.6%,2,16
+RB,Damien Harris,31.30,5600,5.6,5.59,4.0%,2,16
+WR,Jamar Chase,22.50,7100,7.1,3.17,13.8%,2,16
+WR,Tee Higgins,46.40,6200,6.2,7.48,9.3%,2,16
+WR,Aman Ra Brown,26.00,5600,5.6,4.64,7.6%,2,16
+TE,Mark Andrews,29.50,7000,7,4.21,8.7%,2,16
+FLEX,Marvin Jones,15.40,4400,4.4,3.50,2.3%,2,16
+DEF,Eagles,16.00,3600,3.6,4.44,9.2%,2,16
+QB,Joe Burrow,41.10,5900,5.9,6.97,12.4%,3,16
+RB,Sony Michel,23.50,5500,5.5,4.27,2.1%,3,16
+RB,David Montgomery,23.60,5700,5.7,4.14,19.1%,3,16
+WR,Jamar Chase,22.50,7100,7.1,3.17,13.8%,3,16
+WR,Tee Higgins,46.40,6200,6.2,7.48,9.3%,3,16
+WR,Antonio Brown,23.10,4900,4.9,4.71,52.2%,3,16
+TE,Mark Andrews,29.50,7000,7,4.21,8.7%,3,16
+FLEX,Justin Jackson,35.20,4200,4.2,8.38,44.6%,3,16
+DEF,Chiefs,12.00,3500,3.5,3.43,4.5%,3,16
+QB,Joe Burrow,37.84,6900,6.9,5.48,8.0%,1,17
+RB,Sony Michel,18.90,5800,5.8,3.26,24.0%,1,17
+RB,Darrel Williams,25.70,5800,5.8,4.43,15.7%,1,17
+WR,Jamar Chase,58.60,7600,7.6,7.71,4.5%,1,17
+WR,Brandin Cooks,19.60,6000,6,3.27,13.7%,1,17
+WR,Braxton Berrios,26.70,3700,3.7,7.22,22.4%,1,17
+TE,Rob Gronkowski,21.50,6200,6.2,3.47,6.9%,1,17
+FLEX,Jaret Patterson,20.80,4800,4.8,4.33,8.4%,1,17
+DEF,Bears,21.00,3200,3.2,6.56,11.0%,1,17
+QB,Joe Burrow,37.84,6900,6.9,5.48,8.0%,2,17
+RB,Devin Singletary,26.00,5400,5.4,4.81,15.0%,2,17
+RB,Darrel Williams,25.70,5800,5.8,4.43,15.7%,2,17
+WR,Jamar Chase,58.60,7600,7.6,7.71,4.5%,2,17
+WR,Cooper Kupp,21.50,9500,9.5,2.26,19.3%,2,17
+WR,Braxton Berrios,26.70,3700,3.7,7.22,22.4%,2,17
+TE,Cameron Brate,8.50,2900,2.9,2.93,1.5%,2,17
+FLEX,Boston Scott,24.60,4900,4.9,5.02,4.7%,2,17
+DEF,Bears,21.00,3200,3.2,6.56,11.0%,2,17
+QB,Joe Burrow,37.84,6900,6.9,5.48,8.0%,3,17
+RB,Rashad Penny,35.50,6100,6.1,5.82,14.2%,3,17
+RB,Darrel Williams,25.70,5800,5.8,4.43,15.7%,3,17
+WR,Jamar Chase,58.60,7600,7.6,7.71,4.5%,3,17
+WR,Amari Cooper,10.80,6600,6.6,1.64,6.6%,3,17
+WR,Amon Ra St Brown,38.40,6000,6,6.40,8.1%,3,17
+TE,Anthony Firkser,11.40,2600,2.6,4.38,0.2%,3,17
+FLEX,Zach Ertz,11.10,5200,5.2,2.13,9.9%,3,17
+DEF,Bears,21.00,3200,3.2,6.56,11.0%,3,17
+QB,Matt Stafford,19.52,6700,6.7,2.91,7.8%,1,18
+RB,James Conner,27.30,6300,6.3,4.33,10.3%,1,18
+RB,Antonio Gibson,25.10,5800,5.8,4.33,9.3%,1,18
+WR,Cooper Kupp,29.60,9700,9.7,3.05,18.3%,1,18
+WR,Tyler Lockett,27.00,6400,6.4,4.22,11.6%,1,18
+WR,Chase Claypool,18.00,5100,5.1,3.53,6.9%,1,18
+TE,Tyler Higbee,23.50,4000,4,5.88,6.4%,1,18
+FLEX,Jaun Jennings,27.40,3600,3.6,7.61,0.2%,1,18
+DEF,Dolphins,20.00,2400,2.4,8.33,8.1%,1,18
+QB,Ryan Tannehill,27.28,6000,6,4.55,3.9%,2,18
+RB,James Conner,27.30,6300,6.3,4.33,10.3%,2,18
+RB,Antonio Gibson,25.10,5800,5.8,4.33,9.3%,2,18
+WR,Brandin Cooks,5.60,6300,6.3,0.89,15.5%,2,18
+WR,Amon Ra St Brown,29.10,6800,6.8,4.28,14.7%,2,18
+WR,Russel Gage,30.60,5600,5.6,5.46,2.8%,2,18
+TE,Tyler Higbee,23.50,4000,4,5.88,6.4%,2,18
+FLEX,Devin Singletary,25.20,6000,6,4.20,23.2%,2,18
+DEF,WFT,19.00,3100,3.1,6.13,10.6%,2,18
+QB,Kyler Murray,17.10,7400,7.4,2.31,12.4%,3,18
+RB,Rashaad Penny,28.00,6500,6.5,4.31,6.8%,3,18
+RB,Antonio Gibson,25.10,5800,5.8,4.33,9.3%,3,18
+WR,Cooper Kupp,29.60,9700,9.7,3.05,18.3%,3,18
+WR,Allen Lazard,24.50,4600,4.6,5.33,5.6%,3,18
+WR,Danny Amendola,35.30,3000,3,11.77,0.2%,3,18
+TE,Rob Gronkowski,23.70,6300,6.3,3.76,12.6%,3,18
+FLEX,Cole Kmet,8.80,3400,3.4,2.59,7.9%,3,18
+DEF,WFT,19.00,3100,3.1,6.13,10.6%,3,18
+QB,Josh Allen,41.92,7900,7.9,5.31,24.1%,1,19
+RB,Devin Singletary,24.40,5800,5.8,4.21,52.3%,1,19
+RB,Josh Jacobs,16.70,6600,6.6,2.53,43.8%,1,19
+WR,Jamar Chase,25.90,7800,7.8,3.32,50.9%,1,19
+WR,Tyler Boyd,12.90,4600,4.6,2.80,41.9%,1,19
+WR,Zay Jones,17.10,4000,4,4.28,33.6%,1,19
+TE,Dawson Knox,25.90,5100,5.1,5.08,14.8%,1,19
+FLEX,Kendrick Bourne,28.10,4400,4.4,6.39,11.4%,1,19
+DEF,Bills,8.00,3200,3.2,2.50,37.4%,1,19
+QB,Josh Allen,41.92,7900,7.9,5.31,24.1%,2,19
+RB,Devin Singletary,24.40,5800,5.8,4.21,52.3%,2,19
+RB,Josh Jacobs,16.70,6600,6.6,2.53,43.8%,2,19
+WR,Jamar Chase,25.90,7800,7.8,3.32,50.9%,2,19
+WR,Kendrick Bourne,28.10,4400,4.4,6.39,11.4%,2,19
+WR,Zay Jones,17.10,4000,4,4.28,33.6%,2,19
+TE,Dawson Knox,25.90,5100,5.1,5.08,14.8%,2,19
+FLEX,Rhamondre Stevenson,10.00,5100,5.1,1.96,17.3%,2,19
+DEF,Bills,8.00,3200,3.2,2.50,37.4%,2,19
+QB,Josh Allen,41.92,7900,7.9,5.31,24.1%,3,19
+RB,Devin Singletary,24.40,5800,5.8,4.21,52.3%,3,19
+RB,Josh Jacobs,16.70,6600,6.6,2.53,43.8%,3,19
+WR,Jamar Chase,25.90,7800,7.8,3.32,50.9%,3,19
+WR,Kendrick Bourne,28.10,4400,4.4,6.39,11.4%,3,19
+WR,Hunter Renfrow,13.80,6400,6.4,2.16,43.8%,3,19
+TE,Dawson Knox,25.90,5100,5.1,5.08,14.8%,3,19
+FLEX,CJ Uzomah,18.40,3500,3.5,5.26,28.7%,3,19
+DEF,Raiders,2.00,2500,2.5,0.80,11.6%,3,19
+QB,Patrick Mahomes,41.06,7300,7.3,5.62,23.0%,1,20
+RB,Jerick McKinnon,26.20,4100,4.1,6.39,3.5%,1,20
+RB,Giovani Bernard,19.30,4000,4,4.83,5.9%,1,20
+WR,Deebo Samuel,20.00,7900,7.9,2.53,48.4%,1,20
+WR,Mike Evans,29.70,7000,7,4.24,32.5%,1,20
+WR,Byron Pringle,20.70,3900,3.9,5.31,10.2%,1,20
+TE,Rob Gronkowski,14.10,6400,6.4,2.20,48.2%,1,20
+FLEX,Travis Kelce,28.88,6700,6.7,4.31,29.1%,1,20
+DEF,Eagles,3.00,2500,2.5,1.20,7.3%,1,20
+QB,Patrick Mahomes,41.06,7300,7.3,5.62,23.0%,2,20
+RB,Jerick McKinnon,26.20,4100,4.1,6.39,3.5%,2,20
+RB,Eli Mitchell,15.50,5700,5.7,2.72,40.6%,2,20
+WR,Amari Cooper,18.40,5900,5.9,3.12,30.3%,2,20
+WR,Mike Evans,29.70,7000,7,4.24,32.5%,2,20
+WR,Byron Pringle,20.70,3900,3.9,5.31,10.2%,2,20
+TE,Rob Gronkowski,14.10,6400,6.4,2.20,48.2%,2,20
+FLEX,Travis Kelce,28.88,6700,6.7,4.31,29.1%,2,20
+DEF,49ers,8.00,2800,2.8,2.86,9.9%,2,20
+QB,Patrick Mahomes,41.06,7300,7.3,5.62,23.0%,3,20
+RB,Jerick McKinnon,26.20,4100,4.1,6.39,3.5%,3,20
+RB,Giovani Bernard,19.30,4000,4,4.83,5.9%,3,20
+WR,Deebo Samuel,20.00,7900,7.9,2.53,48.4%,3,20
+WR,Mike Evans,29.70,7000,7,4.24,32.5%,3,20
+WR,Tyreke Hill,16.70,7300,7.3,2.29,33.3%,3,20
+TE,Travis Kelce,28.88,6700,6.7,4.31,29.1%,3,20
+FLEX,Demarcus Robinson,11.60,3300,3.3,3.52,1.2%,3,20
+DEF,Steelers,9.00,2400,2.4,3.75,7.8%,3,20
