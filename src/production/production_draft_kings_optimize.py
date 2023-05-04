@@ -60,5 +60,3 @@ if uploaded_file is not None:
 
         st.markdown("### Optimal Lineup:")
         st.write(optimal_lineup_df)
-
-        st.markdown(download_link(optimal_lineup_df, "optimal_lineup.csv", "Download Optimal Lineup as CSV"), unsafe_allow_html=True)
