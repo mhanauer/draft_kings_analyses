@@ -4,32 +4,16 @@ import base64
 import pulp
 import pandas as pd
 
-def optimize_draft_kings_lineup(df, num_players, cost_constraint):
-    # Create the problem variable
-    prob = pulp.LpProblem("DraftKings_Milly_Makers", pulp.LpMaximize)
-
-    # Create decision variables
-    player_vars = pulp.LpVariable.dicts("Player", (player for player in df["name"]), 0, 1, pulp.LpInteger)
-
-    # Objective function: maximize total value
-    prob += pulp.lpSum([df.loc[df["name"] == player, "value"].values[0] * player_vars[player] for player in df["name"]]), "Total_Value"
-
-    # Constraints
-    prob += pulp.lpSum([df.loc[df["name"] == player, "cost"].values[0] * player_vars[player] for player in df["name"]]) <= cost_constraint, "Total_Cost"
-    
-    for position, count in num_players.items():
-        prob += pulp.lpSum([player_vars[player] for player in df[df["position"] == position]["name"]]) == count, f"{count}_{position}s"
-
-    # Solve the problem
-    prob.solve()
-
-    # Store the results
-    optimal_lineup = [v.name.split("_")[1] for v in prob.variables() if v.varValue > 0]
-
-    # Return the optimal lineup as a DataFrame
-    return df[df["name"].isin(optimal_lineup)]
-
 # ... (rest of the code remains the same)
+
+st.title("DraftKings Milly Makers Lineup Optimizer")
+
+st.markdown("""
+Upload a CSV file containing player data with columns "name", "position", "cost", and "value".
+Set the number of players for each position, and the app will optimize the lineup.
+""")
+
+uploaded_file = st.file_uploader("Upload player data (CSV)", type="csv")
 
 if uploaded_file is not None:
     input_df = pd.read_csv(uploaded_file)
