@@ -52,7 +52,7 @@
         "data_draft_kings_analysis = data_draft_kings.drop(columns=[\"week\"])"
       ],
       "outputs": [],
-      "execution_count": 20,
+      "execution_count": 2,
       "metadata": {
         "jupyter": {
           "source_hidden": false,
@@ -64,27 +64,27 @@
           }
         },
         "gather": {
-          "logged": 1682535896208
+          "logged": 1682885633145
         }
       }
     },
     {
       "cell_type": "code",
       "source": [
-        "data_draft_kings_original.query(\"Name == 'Donovan Jones'\")"
+        "data_draft_kings_analysis.head()"
       ],
       "outputs": [
         {
           "output_type": "execute_result",
-          "execution_count": 22,
+          "execution_count": 5,
           "data": {
-            "text/plain": "    Position           Name  Points  Salary  Reduction  Value Ownership %  \\\n167       WR  Donovan Jones    29.1    3500        3.5   8.31        0.8%   \n\n     Place  week  \n167      1     6  ",
-            "text/html": "<div>\n<style scoped>\n    .dataframe tbody tr th:only-of-type {\n        vertical-align: middle;\n    }\n\n    .dataframe tbody tr th {\n        vertical-align: top;\n    }\n\n    .dataframe thead th {\n        text-align: right;\n    }\n</style>\n<table border=\"1\" class=\"dataframe\">\n  <thead>\n    <tr style=\"text-align: right;\">\n      <th></th>\n      <th>Position</th>\n      <th>Name</th>\n      <th>Points</th>\n      <th>Salary</th>\n      <th>Reduction</th>\n      <th>Value</th>\n      <th>Ownership %</th>\n      <th>Place</th>\n      <th>week</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <th>167</th>\n      <td>WR</td>\n      <td>Donovan Jones</td>\n      <td>29.1</td>\n      <td>3500</td>\n      <td>3.5</td>\n      <td>8.31</td>\n      <td>0.8%</td>\n      <td>1</td>\n      <td>6</td>\n    </tr>\n  </tbody>\n</table>\n</div>"
+            "text/plain": "   points  salary  reduction  value  ownership_%  WR  RB  QB  TE  FLEX  ...  \\\n0   36.28    8100        8.1   4.48        0.082   0   0   1   0     0  ...   \n1   23.80    5300        5.3   4.49        0.020   0   1   0   0     0  ...   \n2   28.00    6200        6.2   4.52        0.160   0   1   0   0     0  ...   \n3   40.10    8200        8.2   4.89        0.108   1   0   0   0     0  ...   \n4   26.70    4900        4.9   5.45        0.122   1   0   0   0     0  ...   \n\n   rashod_bateman  buccaneers  henry_ruggs  ricky_seals_jones  noah_fant  \\\n0               0           0            0                  0          0   \n1               0           0            0                  0          0   \n2               0           0            0                  0          0   \n3               0           0            0                  0          0   \n4               0           0            0                  0          0   \n\n   donovan_jones  steelers  1  2  3  \n0              0         0  1  0  0  \n1              0         0  1  0  0  \n2              0         0  1  0  0  \n3              0         0  1  0  0  \n4              0         0  1  0  0  \n\n[5 rows x 219 columns]",
+            "text/html": "<div>\n<style scoped>\n    .dataframe tbody tr th:only-of-type {\n        vertical-align: middle;\n    }\n\n    .dataframe tbody tr th {\n        vertical-align: top;\n    }\n\n    .dataframe thead th {\n        text-align: right;\n    }\n</style>\n<table border=\"1\" class=\"dataframe\">\n  <thead>\n    <tr style=\"text-align: right;\">\n      <th></th>\n      <th>points</th>\n      <th>salary</th>\n      <th>reduction</th>\n      <th>value</th>\n      <th>ownership_%</th>\n      <th>WR</th>\n      <th>RB</th>\n      <th>QB</th>\n      <th>TE</th>\n      <th>FLEX</th>\n      <th>...</th>\n      <th>rashod_bateman</th>\n      <th>buccaneers</th>\n      <th>henry_ruggs</th>\n      <th>ricky_seals_jones</th>\n      <th>noah_fant</th>\n      <th>donovan_jones</th>\n      <th>steelers</th>\n      <th>1</th>\n      <th>2</th>\n      <th>3</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <th>0</th>\n      <td>36.28</td>\n      <td>8100</td>\n      <td>8.1</td>\n      <td>4.48</td>\n      <td>0.082</td>\n      <td>0</td>\n      <td>0</td>\n      <td>1</td>\n      <td>0</td>\n      <td>0</td>\n      <td>...</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>1</td>\n      <td>0</td>\n      <td>0</td>\n    </tr>\n    <tr>\n      <th>1</th>\n      <td>23.80</td>\n      <td>5300</td>\n      <td>5.3</td>\n      <td>4.49</td>\n      <td>0.020</td>\n      <td>0</td>\n      <td>1</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>...</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>1</td>\n      <td>0</td>\n      <td>0</td>\n    </tr>\n    <tr>\n      <th>2</th>\n      <td>28.00</td>\n      <td>6200</td>\n      <td>6.2</td>\n      <td>4.52</td>\n      <td>0.160</td>\n      <td>0</td>\n      <td>1</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>...</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>1</td>\n      <td>0</td>\n      <td>0</td>\n    </tr>\n    <tr>\n      <th>3</th>\n      <td>40.10</td>\n      <td>8200</td>\n      <td>8.2</td>\n      <td>4.89</td>\n      <td>0.108</td>\n      <td>1</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>...</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>1</td>\n      <td>0</td>\n      <td>0</td>\n    </tr>\n    <tr>\n      <th>4</th>\n      <td>26.70</td>\n      <td>4900</td>\n      <td>4.9</td>\n      <td>5.45</td>\n      <td>0.122</td>\n      <td>1</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>...</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>1</td>\n      <td>0</td>\n      <td>0</td>\n    </tr>\n  </tbody>\n</table>\n<p>5 rows × 219 columns</p>\n</div>"
           },
           "metadata": {}
         }
       ],
-      "execution_count": 22,
+      "execution_count": 5,
       "metadata": {
         "jupyter": {
           "source_hidden": false,
@@ -96,7 +96,7 @@
           }
         },
         "gather": {
-          "logged": 1682535936946
+          "logged": 1682885820975
         }
       }
     },
@@ -104,13 +104,45 @@
       "cell_type": "code",
       "source": [
         "data_draft_kings_mean = (\n",
-        "    data_draft_kings_analysis.median()\n",
+        "    data_draft_kings_analysis.mean()\n",
         "    .reset_index()\n",
-        "    .rename(columns={\"index\": \"attribute\", 0: \"median\"})\n",
+        "    .rename(columns={\"index\": \"attribute\", 0: \"mean\"})\n",
         "    .round(2)\n",
         ")"
       ],
       "outputs": [],
+      "execution_count": 13,
+      "metadata": {
+        "jupyter": {
+          "source_hidden": false,
+          "outputs_hidden": false
+        },
+        "nteract": {
+          "transient": {
+            "deleting": false
+          }
+        },
+        "gather": {
+          "logged": 1682886515519
+        }
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "data_draft_kings_analysis"
+      ],
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "execution_count": 12,
+          "data": {
+            "text/plain": "     points  salary  reduction  value  ownership_%  WR  RB  QB  TE  FLEX  ...  \\\n0     36.28    8100        8.1   4.48        0.082   0   0   1   0     0  ...   \n1     23.80    5300        5.3   4.49        0.020   0   1   0   0     0  ...   \n2     28.00    6200        6.2   4.52        0.160   0   1   0   0     0  ...   \n3     40.10    8200        8.2   4.89        0.108   1   0   0   0     0  ...   \n4     26.70    4900        4.9   5.45        0.122   1   0   0   0     0  ...   \n..      ...     ...        ...    ...          ...  ..  ..  ..  ..   ...  ...   \n562   29.70    7000        7.0   4.24        0.325   1   0   0   0     0  ...   \n563   16.70    7300        7.3   2.29        0.333   1   0   0   0     0  ...   \n564   28.88    6700        6.7   4.31        0.291   0   0   0   1     0  ...   \n565   11.60    3300        3.3   3.52        0.012   0   0   0   0     1  ...   \n566    9.00    2400        2.4   3.75        0.078   0   0   0   0     0  ...   \n\n     rashod_bateman  buccaneers  henry_ruggs  ricky_seals_jones  noah_fant  \\\n0                 0           0            0                  0          0   \n1                 0           0            0                  0          0   \n2                 0           0            0                  0          0   \n3                 0           0            0                  0          0   \n4                 0           0            0                  0          0   \n..              ...         ...          ...                ...        ...   \n562               0           0            0                  0          0   \n563               0           0            0                  0          0   \n564               0           0            0                  0          0   \n565               0           0            0                  0          0   \n566               0           0            0                  0          0   \n\n     donovan_jones  steelers  1  2  3  \n0                0         0  1  0  0  \n1                0         0  1  0  0  \n2                0         0  1  0  0  \n3                0         0  1  0  0  \n4                0         0  1  0  0  \n..             ...       ... .. .. ..  \n562              0         0  0  0  1  \n563              0         0  0  0  1  \n564              0         0  0  0  1  \n565              0         0  0  0  1  \n566              0         1  0  0  1  \n\n[567 rows x 219 columns]",
+            "text/html": "<div>\n<style scoped>\n    .dataframe tbody tr th:only-of-type {\n        vertical-align: middle;\n    }\n\n    .dataframe tbody tr th {\n        vertical-align: top;\n    }\n\n    .dataframe thead th {\n        text-align: right;\n    }\n</style>\n<table border=\"1\" class=\"dataframe\">\n  <thead>\n    <tr style=\"text-align: right;\">\n      <th></th>\n      <th>points</th>\n      <th>salary</th>\n      <th>reduction</th>\n      <th>value</th>\n      <th>ownership_%</th>\n      <th>WR</th>\n      <th>RB</th>\n      <th>QB</th>\n      <th>TE</th>\n      <th>FLEX</th>\n      <th>...</th>\n      <th>rashod_bateman</th>\n      <th>buccaneers</th>\n      <th>henry_ruggs</th>\n      <th>ricky_seals_jones</th>\n      <th>noah_fant</th>\n      <th>donovan_jones</th>\n      <th>steelers</th>\n      <th>1</th>\n      <th>2</th>\n      <th>3</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <th>0</th>\n      <td>36.28</td>\n      <td>8100</td>\n      <td>8.1</td>\n      <td>4.48</td>\n      <td>0.082</td>\n      <td>0</td>\n      <td>0</td>\n      <td>1</td>\n      <td>0</td>\n      <td>0</td>\n      <td>...</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>1</td>\n      <td>0</td>\n      <td>0</td>\n    </tr>\n    <tr>\n      <th>1</th>\n      <td>23.80</td>\n      <td>5300</td>\n      <td>5.3</td>\n      <td>4.49</td>\n      <td>0.020</td>\n      <td>0</td>\n      <td>1</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>...</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>1</td>\n      <td>0</td>\n      <td>0</td>\n    </tr>\n    <tr>\n      <th>2</th>\n      <td>28.00</td>\n      <td>6200</td>\n      <td>6.2</td>\n      <td>4.52</td>\n      <td>0.160</td>\n      <td>0</td>\n      <td>1</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>...</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>1</td>\n      <td>0</td>\n      <td>0</td>\n    </tr>\n    <tr>\n      <th>3</th>\n      <td>40.10</td>\n      <td>8200</td>\n      <td>8.2</td>\n      <td>4.89</td>\n      <td>0.108</td>\n      <td>1</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>...</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>1</td>\n      <td>0</td>\n      <td>0</td>\n    </tr>\n    <tr>\n      <th>4</th>\n      <td>26.70</td>\n      <td>4900</td>\n      <td>4.9</td>\n      <td>5.45</td>\n      <td>0.122</td>\n      <td>1</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>...</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>1</td>\n      <td>0</td>\n      <td>0</td>\n    </tr>\n    <tr>\n      <th>...</th>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n    </tr>\n    <tr>\n      <th>562</th>\n      <td>29.70</td>\n      <td>7000</td>\n      <td>7.0</td>\n      <td>4.24</td>\n      <td>0.325</td>\n      <td>1</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>...</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>1</td>\n    </tr>\n    <tr>\n      <th>563</th>\n      <td>16.70</td>\n      <td>7300</td>\n      <td>7.3</td>\n      <td>2.29</td>\n      <td>0.333</td>\n      <td>1</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>...</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>1</td>\n    </tr>\n    <tr>\n      <th>564</th>\n      <td>28.88</td>\n      <td>6700</td>\n      <td>6.7</td>\n      <td>4.31</td>\n      <td>0.291</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>1</td>\n      <td>0</td>\n      <td>...</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>1</td>\n    </tr>\n    <tr>\n      <th>565</th>\n      <td>11.60</td>\n      <td>3300</td>\n      <td>3.3</td>\n      <td>3.52</td>\n      <td>0.012</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>1</td>\n      <td>...</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>1</td>\n    </tr>\n    <tr>\n      <th>566</th>\n      <td>9.00</td>\n      <td>2400</td>\n      <td>2.4</td>\n      <td>3.75</td>\n      <td>0.078</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>...</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>1</td>\n      <td>0</td>\n      <td>0</td>\n      <td>1</td>\n    </tr>\n  </tbody>\n</table>\n<p>567 rows × 219 columns</p>\n</div>"
+          },
+          "metadata": {}
+        }
+      ],
       "execution_count": 12,
       "metadata": {
         "jupyter": {
@@ -123,7 +155,110 @@
           }
         },
         "gather": {
-          "logged": 1682535774252
+          "logged": 1682886503567
+        }
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "data_draft_kings_mean.to_csv(\"data_draft_kings_mean.csv\")"
+      ],
+      "outputs": [],
+      "execution_count": 14,
+      "metadata": {
+        "jupyter": {
+          "source_hidden": false,
+          "outputs_hidden": false
+        },
+        "nteract": {
+          "transient": {
+            "deleting": false
+          }
+        },
+        "gather": {
+          "logged": 1682886524769
+        }
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "outputs": [],
+      "execution_count": null,
+      "metadata": {
+        "jupyter": {
+          "source_hidden": false,
+          "outputs_hidden": false
+        },
+        "nteract": {
+          "transient": {
+            "deleting": false
+          }
+        }
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "data_draft_kings_analysis.head()"
+      ],
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "execution_count": 8,
+          "data": {
+            "text/plain": "   points  salary  reduction  value  ownership_%  WR  RB  QB  TE  FLEX  ...  \\\n0   36.28    8100        8.1   4.48        0.082   0   0   1   0     0  ...   \n1   23.80    5300        5.3   4.49        0.020   0   1   0   0     0  ...   \n2   28.00    6200        6.2   4.52        0.160   0   1   0   0     0  ...   \n3   40.10    8200        8.2   4.89        0.108   1   0   0   0     0  ...   \n4   26.70    4900        4.9   5.45        0.122   1   0   0   0     0  ...   \n\n   rashod_bateman  buccaneers  henry_ruggs  ricky_seals_jones  noah_fant  \\\n0               0           0            0                  0          0   \n1               0           0            0                  0          0   \n2               0           0            0                  0          0   \n3               0           0            0                  0          0   \n4               0           0            0                  0          0   \n\n   donovan_jones  steelers  1  2  3  \n0              0         0  1  0  0  \n1              0         0  1  0  0  \n2              0         0  1  0  0  \n3              0         0  1  0  0  \n4              0         0  1  0  0  \n\n[5 rows x 219 columns]",
+            "text/html": "<div>\n<style scoped>\n    .dataframe tbody tr th:only-of-type {\n        vertical-align: middle;\n    }\n\n    .dataframe tbody tr th {\n        vertical-align: top;\n    }\n\n    .dataframe thead th {\n        text-align: right;\n    }\n</style>\n<table border=\"1\" class=\"dataframe\">\n  <thead>\n    <tr style=\"text-align: right;\">\n      <th></th>\n      <th>points</th>\n      <th>salary</th>\n      <th>reduction</th>\n      <th>value</th>\n      <th>ownership_%</th>\n      <th>WR</th>\n      <th>RB</th>\n      <th>QB</th>\n      <th>TE</th>\n      <th>FLEX</th>\n      <th>...</th>\n      <th>rashod_bateman</th>\n      <th>buccaneers</th>\n      <th>henry_ruggs</th>\n      <th>ricky_seals_jones</th>\n      <th>noah_fant</th>\n      <th>donovan_jones</th>\n      <th>steelers</th>\n      <th>1</th>\n      <th>2</th>\n      <th>3</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <th>0</th>\n      <td>36.28</td>\n      <td>8100</td>\n      <td>8.1</td>\n      <td>4.48</td>\n      <td>0.082</td>\n      <td>0</td>\n      <td>0</td>\n      <td>1</td>\n      <td>0</td>\n      <td>0</td>\n      <td>...</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>1</td>\n      <td>0</td>\n      <td>0</td>\n    </tr>\n    <tr>\n      <th>1</th>\n      <td>23.80</td>\n      <td>5300</td>\n      <td>5.3</td>\n      <td>4.49</td>\n      <td>0.020</td>\n      <td>0</td>\n      <td>1</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>...</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>1</td>\n      <td>0</td>\n      <td>0</td>\n    </tr>\n    <tr>\n      <th>2</th>\n      <td>28.00</td>\n      <td>6200</td>\n      <td>6.2</td>\n      <td>4.52</td>\n      <td>0.160</td>\n      <td>0</td>\n      <td>1</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>...</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>1</td>\n      <td>0</td>\n      <td>0</td>\n    </tr>\n    <tr>\n      <th>3</th>\n      <td>40.10</td>\n      <td>8200</td>\n      <td>8.2</td>\n      <td>4.89</td>\n      <td>0.108</td>\n      <td>1</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>...</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>1</td>\n      <td>0</td>\n      <td>0</td>\n    </tr>\n    <tr>\n      <th>4</th>\n      <td>26.70</td>\n      <td>4900</td>\n      <td>4.9</td>\n      <td>5.45</td>\n      <td>0.122</td>\n      <td>1</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>...</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>1</td>\n      <td>0</td>\n      <td>0</td>\n    </tr>\n  </tbody>\n</table>\n<p>5 rows × 219 columns</p>\n</div>"
+          },
+          "metadata": {}
+        }
+      ],
+      "execution_count": 8,
+      "metadata": {
+        "jupyter": {
+          "source_hidden": false,
+          "outputs_hidden": false
+        },
+        "nteract": {
+          "transient": {
+            "deleting": false
+          }
+        },
+        "gather": {
+          "logged": 1682885980981
+        }
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "data_draft_kings_mean"
+      ],
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "execution_count": 7,
+          "data": {
+            "text/plain": "         attribute   median\n0           points    25.10\n1           salary  5700.00\n2        reduction     5.70\n3            value     4.62\n4      ownership_%     0.10\n..             ...      ...\n214  donovan_jones     0.00\n215       steelers     0.00\n216              1     0.00\n217              2     0.00\n218              3     0.00\n\n[219 rows x 2 columns]",
+            "text/html": "<div>\n<style scoped>\n    .dataframe tbody tr th:only-of-type {\n        vertical-align: middle;\n    }\n\n    .dataframe tbody tr th {\n        vertical-align: top;\n    }\n\n    .dataframe thead th {\n        text-align: right;\n    }\n</style>\n<table border=\"1\" class=\"dataframe\">\n  <thead>\n    <tr style=\"text-align: right;\">\n      <th></th>\n      <th>attribute</th>\n      <th>median</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <th>0</th>\n      <td>points</td>\n      <td>25.10</td>\n    </tr>\n    <tr>\n      <th>1</th>\n      <td>salary</td>\n      <td>5700.00</td>\n    </tr>\n    <tr>\n      <th>2</th>\n      <td>reduction</td>\n      <td>5.70</td>\n    </tr>\n    <tr>\n      <th>3</th>\n      <td>value</td>\n      <td>4.62</td>\n    </tr>\n    <tr>\n      <th>4</th>\n      <td>ownership_%</td>\n      <td>0.10</td>\n    </tr>\n    <tr>\n      <th>...</th>\n      <td>...</td>\n      <td>...</td>\n    </tr>\n    <tr>\n      <th>214</th>\n      <td>donovan_jones</td>\n      <td>0.00</td>\n    </tr>\n    <tr>\n      <th>215</th>\n      <td>steelers</td>\n      <td>0.00</td>\n    </tr>\n    <tr>\n      <th>216</th>\n      <td>1</td>\n      <td>0.00</td>\n    </tr>\n    <tr>\n      <th>217</th>\n      <td>2</td>\n      <td>0.00</td>\n    </tr>\n    <tr>\n      <th>218</th>\n      <td>3</td>\n      <td>0.00</td>\n    </tr>\n  </tbody>\n</table>\n<p>219 rows × 2 columns</p>\n</div>"
+          },
+          "metadata": {}
+        }
+      ],
+      "execution_count": 7,
+      "metadata": {
+        "jupyter": {
+          "source_hidden": false,
+          "outputs_hidden": false
+        },
+        "nteract": {
+          "transient": {
+            "deleting": false
+          }
+        },
+        "gather": {
+          "logged": 1682885830576
         }
       }
     },

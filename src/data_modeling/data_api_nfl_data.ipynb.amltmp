@@ -1,0 +1,237 @@
+{
+  "cells": [
+    {
+      "cell_type": "code",
+      "source": [
+        "%load_ext lab_black"
+      ],
+      "outputs": [],
+      "execution_count": 2,
+      "metadata": {}
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Step: Load data"
+      ],
+      "metadata": {
+        "nteract": {
+          "transient": {
+            "deleting": false
+          }
+        }
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import requests\n",
+        "from bs4 import BeautifulSoup\n",
+        "import csv\n",
+        "import pandas as pd\n",
+        "import numpy as np"
+      ],
+      "outputs": [],
+      "execution_count": 3,
+      "metadata": {
+        "jupyter": {
+          "source_hidden": false,
+          "outputs_hidden": false
+        },
+        "nteract": {
+          "transient": {
+            "deleting": false
+          }
+        },
+        "gather": {
+          "logged": 1682871095216
+        }
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import requests\n",
+        "from bs4 import BeautifulSoup\n",
+        "import pandas as pd\n",
+        "import time\n",
+        "\n",
+        "\n",
+        "def scrape_table(url, table_id, session):\n",
+        "    headers = {\n",
+        "        \"User-Agent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.82 Safari/537.36\"\n",
+        "    }\n",
+        "    response = session.get(url, headers=headers)\n",
+        "    soup = BeautifulSoup(response.text, \"html.parser\")\n",
+        "\n",
+        "    table = soup.find(\"table\", {\"id\": table_id})\n",
+        "    header_rows = table.thead.find_all(\"tr\")\n",
+        "    header_row = header_rows[-1]  # Use the last header row to get the correct headers\n",
+        "    headers = [th.text for th in header_row.find_all(\"th\") if th.text != \"Rk\"]\n",
+        "\n",
+        "    rows = table.tbody.find_all(\"tr\")\n",
+        "    data = []\n",
+        "    for row in rows:\n",
+        "        if row.get(\"class\") and \"thead\" in row[\"class\"]:\n",
+        "            continue\n",
+        "        data_row = [\n",
+        "            td.text for td in row.find_all(\"td\") if td.get(\"data-stat\") != \"ranker\"\n",
+        "        ]\n",
+        "        data.append(data_row)\n",
+        "\n",
+        "    return pd.DataFrame(data, columns=headers)\n",
+        "\n",
+        "\n",
+        "base_url = \"https://www.pro-football-reference.com/years/{}/\"\n",
+        "\n",
+        "# Initialize empty DataFrames for each category\n",
+        "passing_data = pd.DataFrame()\n",
+        "rushing_data = pd.DataFrame()\n",
+        "receiving_data = pd.DataFrame()\n",
+        "defense_data = pd.DataFrame()\n",
+        "\n",
+        "# Create a session\n",
+        "session = requests.Session()\n",
+        "\n",
+        "# Iterate through the years and append the data\n",
+        "for year in range(2010, 2023):\n",
+        "    print(f\"Processing data for {year}\")\n",
+        "\n",
+        "    # Scrape passing data\n",
+        "    passing_url = base_url.format(year) + \"passing.htm\"\n",
+        "    passing_df = scrape_table(passing_url, \"passing\", session)\n",
+        "    passing_df[\"Year\"] = year\n",
+        "    passing_data = passing_data.append(passing_df, ignore_index=True)\n",
+        "\n",
+        "    time.sleep(5)  # Add a delay between requests\n",
+        "\n",
+        "    # Scrape rushing data\n",
+        "    rushing_url = base_url.format(year) + \"rushing.htm\"\n",
+        "    rushing_df = scrape_table(rushing_url, \"rushing\", session)\n",
+        "    rushing_df[\"Year\"] = year\n",
+        "    rushing_data = rushing_data.append(rushing_df, ignore_index=True)\n",
+        "\n",
+        "    time.sleep(5)\n",
+        "\n",
+        "    # Scrape receiving data\n",
+        "    receiving_url = base_url.format(year) + \"receiving.htm\"\n",
+        "    receiving_df = scrape_table(receiving_url, \"receiving\", session)\n",
+        "    receiving_df[\"Year\"] = year\n",
+        "    receiving_data = receiving_data.append(receiving_df, ignore_index=True)\n",
+        "\n",
+        "    time.sleep(5)\n",
+        "\n",
+        "    # Scrape defense data\n",
+        "    defense_url = base_url.format(year) + \"defense.htm\"\n",
+        "    defense_df = scrape_table(defense_url, \"defense\", session)\n",
+        "    defense_df[\"Year\"] = year\n",
+        "    defense_data = defense_data.append(defense_df, ignore_index=True)\n",
+        "\n",
+        "    time.sleep(5)\n",
+        "\n",
+        "print(\"Data processing completed!\")"
+      ],
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": "Processing data for 2010\nProcessing data for 2011\nProcessing data for 2012\nProcessing data for 2013\nProcessing data for 2014\nProcessing data for 2015\nProcessing data for 2016\nProcessing data for 2017\nProcessing data for 2018\nProcessing data for 2019\nProcessing data for 2020\nProcessing data for 2021\nProcessing data for 2022\nData processing completed!\n"
+        },
+        {
+          "output_type": "stream",
+          "name": "stderr",
+          "text": "/tmp/ipykernel_29626/475334998.py:51: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.\n  passing_data = passing_data.append(passing_df, ignore_index=True)\n/tmp/ipykernel_29626/475334998.py:59: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.\n  rushing_data = rushing_data.append(rushing_df, ignore_index=True)\n/tmp/ipykernel_29626/475334998.py:67: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.\n  receiving_data = receiving_data.append(receiving_df, ignore_index=True)\n/tmp/ipykernel_29626/475334998.py:75: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.\n  defense_data = defense_data.append(defense_df, ignore_index=True)\n/tmp/ipykernel_29626/475334998.py:51: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.\n  passing_data = passing_data.append(passing_df, ignore_index=True)\n/tmp/ipykernel_29626/475334998.py:59: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.\n  rushing_data = rushing_data.append(rushing_df, ignore_index=True)\n/tmp/ipykernel_29626/475334998.py:67: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.\n  receiving_data = receiving_data.append(receiving_df, ignore_index=True)\n/tmp/ipykernel_29626/475334998.py:75: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.\n  defense_data = defense_data.append(defense_df, ignore_index=True)\n/tmp/ipykernel_29626/475334998.py:51: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.\n  passing_data = passing_data.append(passing_df, ignore_index=True)\n/tmp/ipykernel_29626/475334998.py:59: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.\n  rushing_data = rushing_data.append(rushing_df, ignore_index=True)\n/tmp/ipykernel_29626/475334998.py:67: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.\n  receiving_data = receiving_data.append(receiving_df, ignore_index=True)\n/tmp/ipykernel_29626/475334998.py:75: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.\n  defense_data = defense_data.append(defense_df, ignore_index=True)\n/tmp/ipykernel_29626/475334998.py:51: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.\n  passing_data = passing_data.append(passing_df, ignore_index=True)\n/tmp/ipykernel_29626/475334998.py:59: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.\n  rushing_data = rushing_data.append(rushing_df, ignore_index=True)\n/tmp/ipykernel_29626/475334998.py:67: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.\n  receiving_data = receiving_data.append(receiving_df, ignore_index=True)\n/tmp/ipykernel_29626/475334998.py:75: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.\n  defense_data = defense_data.append(defense_df, ignore_index=True)\n/tmp/ipykernel_29626/475334998.py:51: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.\n  passing_data = passing_data.append(passing_df, ignore_index=True)\n/tmp/ipykernel_29626/475334998.py:59: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.\n  rushing_data = rushing_data.append(rushing_df, ignore_index=True)\n/tmp/ipykernel_29626/475334998.py:67: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.\n  receiving_data = receiving_data.append(receiving_df, ignore_index=True)\n/tmp/ipykernel_29626/475334998.py:75: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.\n  defense_data = defense_data.append(defense_df, ignore_index=True)\n/tmp/ipykernel_29626/475334998.py:51: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.\n  passing_data = passing_data.append(passing_df, ignore_index=True)\n/tmp/ipykernel_29626/475334998.py:59: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.\n  rushing_data = rushing_data.append(rushing_df, ignore_index=True)\n/tmp/ipykernel_29626/475334998.py:67: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.\n  receiving_data = receiving_data.append(receiving_df, ignore_index=True)\n/tmp/ipykernel_29626/475334998.py:75: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.\n  defense_data = defense_data.append(defense_df, ignore_index=True)\n/tmp/ipykernel_29626/475334998.py:51: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.\n  passing_data = passing_data.append(passing_df, ignore_index=True)\n/tmp/ipykernel_29626/475334998.py:59: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.\n  rushing_data = rushing_data.append(rushing_df, ignore_index=True)\n/tmp/ipykernel_29626/475334998.py:67: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.\n  receiving_data = receiving_data.append(receiving_df, ignore_index=True)\n/tmp/ipykernel_29626/475334998.py:75: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.\n  defense_data = defense_data.append(defense_df, ignore_index=True)\n/tmp/ipykernel_29626/475334998.py:51: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.\n  passing_data = passing_data.append(passing_df, ignore_index=True)\n/tmp/ipykernel_29626/475334998.py:59: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.\n  rushing_data = rushing_data.append(rushing_df, ignore_index=True)\n/tmp/ipykernel_29626/475334998.py:67: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.\n  receiving_data = receiving_data.append(receiving_df, ignore_index=True)\n/tmp/ipykernel_29626/475334998.py:75: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.\n  defense_data = defense_data.append(defense_df, ignore_index=True)\n/tmp/ipykernel_29626/475334998.py:51: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.\n  passing_data = passing_data.append(passing_df, ignore_index=True)\n/tmp/ipykernel_29626/475334998.py:59: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.\n  rushing_data = rushing_data.append(rushing_df, ignore_index=True)\n/tmp/ipykernel_29626/475334998.py:67: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.\n  receiving_data = receiving_data.append(receiving_df, ignore_index=True)\n/tmp/ipykernel_29626/475334998.py:75: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.\n  defense_data = defense_data.append(defense_df, ignore_index=True)\n/tmp/ipykernel_29626/475334998.py:51: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.\n  passing_data = passing_data.append(passing_df, ignore_index=True)\n/tmp/ipykernel_29626/475334998.py:59: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.\n  rushing_data = rushing_data.append(rushing_df, ignore_index=True)\n/tmp/ipykernel_29626/475334998.py:67: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.\n  receiving_data = receiving_data.append(receiving_df, ignore_index=True)\n/tmp/ipykernel_29626/475334998.py:75: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.\n  defense_data = defense_data.append(defense_df, ignore_index=True)\n/tmp/ipykernel_29626/475334998.py:51: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.\n  passing_data = passing_data.append(passing_df, ignore_index=True)\n/tmp/ipykernel_29626/475334998.py:59: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.\n  rushing_data = rushing_data.append(rushing_df, ignore_index=True)\n/tmp/ipykernel_29626/475334998.py:67: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.\n  receiving_data = receiving_data.append(receiving_df, ignore_index=True)\n/tmp/ipykernel_29626/475334998.py:75: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.\n  defense_data = defense_data.append(defense_df, ignore_index=True)\n/tmp/ipykernel_29626/475334998.py:51: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.\n  passing_data = passing_data.append(passing_df, ignore_index=True)\n/tmp/ipykernel_29626/475334998.py:59: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.\n  rushing_data = rushing_data.append(rushing_df, ignore_index=True)\n/tmp/ipykernel_29626/475334998.py:67: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.\n  receiving_data = receiving_data.append(receiving_df, ignore_index=True)\n/tmp/ipykernel_29626/475334998.py:75: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.\n  defense_data = defense_data.append(defense_df, ignore_index=True)\n/tmp/ipykernel_29626/475334998.py:51: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.\n  passing_data = passing_data.append(passing_df, ignore_index=True)\n/tmp/ipykernel_29626/475334998.py:59: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.\n  rushing_data = rushing_data.append(rushing_df, ignore_index=True)\n/tmp/ipykernel_29626/475334998.py:67: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.\n  receiving_data = receiving_data.append(receiving_df, ignore_index=True)\n/tmp/ipykernel_29626/475334998.py:75: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.\n  defense_data = defense_data.append(defense_df, ignore_index=True)\n"
+        }
+      ],
+      "execution_count": 4,
+      "metadata": {
+        "jupyter": {
+          "source_hidden": false,
+          "outputs_hidden": false
+        },
+        "nteract": {
+          "transient": {
+            "deleting": false
+          }
+        },
+        "gather": {
+          "logged": 1682871407466
+        }
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def remove_duplicate_columns(df):\n",
+        "    df = df.loc[:, ~df.columns.duplicated()]\n",
+        "    return df\n",
+        "\n",
+        "\n",
+        "passing_data = remove_duplicate_columns(df=passing_data)\n",
+        "passing_data.to_parquet(\"passing_data.parquet\")\n",
+        "\n",
+        "rushing_data = remove_duplicate_columns(df=rushing_data)\n",
+        "rushing_data.to_parquet(\"rushing_data.parquet\")\n",
+        "\n",
+        "receiving_data = remove_duplicate_columns(df=receiving_data)\n",
+        "receiving_data.to_parquet(\"receiving_data.parquet\")\n",
+        "\n",
+        "defense_data = remove_duplicate_columns(df=receiving_data)\n",
+        "defense_data.to_parquet(\"defense_data.parquet\")"
+      ],
+      "outputs": [],
+      "execution_count": 5,
+      "metadata": {
+        "jupyter": {
+          "source_hidden": false,
+          "outputs_hidden": false
+        },
+        "nteract": {
+          "transient": {
+            "deleting": false
+          }
+        },
+        "gather": {
+          "logged": 1682872116195
+        }
+      }
+    }
+  ],
+  "metadata": {
+    "kernelspec": {
+      "name": "python38-azureml",
+      "language": "python",
+      "display_name": "Python 3.8 - AzureML"
+    },
+    "language_info": {
+      "name": "python",
+      "version": "3.8.10",
+      "mimetype": "text/x-python",
+      "codemirror_mode": {
+        "name": "ipython",
+        "version": 3
+      },
+      "pygments_lexer": "ipython3",
+      "nbconvert_exporter": "python",
+      "file_extension": ".py"
+    },
+    "microsoft": {
+      "ms_spell_check": {
+        "ms_spell_check_language": "en"
+      },
+      "host": {
+        "AzureML": {
+          "notebookHasBeenCompleted": true
+        }
+      }
+    },
+    "kernel_info": {
+      "name": "python38-azureml"
+    },
+    "nteract": {
+      "version": "nteract-front-end@1.0.0"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 2
+}

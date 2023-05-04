@@ -25,14 +25,20 @@
     {
       "cell_type": "code",
       "source": [
-        "import requests\n",
-        "from bs4 import BeautifulSoup\n",
         "import csv\n",
         "import pandas as pd\n",
-        "import numpy as np"
+        "import numpy as np\n",
+        "import time\n",
+        "import os\n",
+        "from pyprojroot import here\n",
+        "from skimpy import clean_columns\n",
+        "from data_cleaning.fun_hot_encode_limit import fun_hot_encode_limit\n",
+        "\n",
+        "path_data = here(\"./data\")\n",
+        "os.chdir(path_data)"
       ],
       "outputs": [],
-      "execution_count": 14,
+      "execution_count": 19,
       "metadata": {
         "jupyter": {
           "source_hidden": false,
@@ -44,127 +50,44 @@
           }
         },
         "gather": {
-          "logged": 1682768403074
+          "logged": 1682874716116
         }
       }
     },
     {
       "cell_type": "code",
       "source": [
-        "\n",
-        "url = 'https://www.pro-football-reference.com/years/2020/passing.htm'\n",
-        "response = requests.get(url)\n",
-        "soup = BeautifulSoup(response.text, 'html.parser')\n",
-        "\n",
-        "# Find the table\n",
-        "table = soup.find('table', {'id': 'passing'})\n",
-        "\n",
-        "# Extract the headers\n",
-        "headers = [th.text for th in table.thead.find_all('th') if th.text != 'Rk']\n",
-        "\n",
-        "# Extract the rows\n",
-        "rows = table.tbody.find_all('tr')\n",
-        "\n",
-        "# Extract the data from each row\n",
-        "data = []\n",
-        "for row in rows:\n",
-        "    if row.get('class') and 'thead' in row['class']:\n",
-        "        continue\n",
-        "    data_row = [td.text for td in row.find_all('td')]\n",
-        "    data.append(data_row)"
+        "passing_data = clean_columns(pd.read_parquet(\"passing_data.parquet\"))\n",
+        "rushing_data = clean_columns(pd.read_parquet(\"rushing_data.parquet\"))\n",
+        "receiving_data = clean_columns(pd.read_parquet(\"receiving_data.parquet\"))\n",
+        "# defense_data = clean_columns(pd.read_parquet(\"defense_data.parquet\"))"
       ],
-      "outputs": [],
-      "execution_count": 11,
-      "metadata": {
-        "jupyter": {
-          "source_hidden": false,
-          "outputs_hidden": false
+      "outputs": [
+        {
+          "output_type": "display_data",
+          "data": {
+            "text/plain": "\u001b[1;36m30\u001b[0m column names have been cleaned\n",
+            "text/html": "<pre style=\"white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace\"><span style=\"color: #008080; text-decoration-color: #008080; font-weight: bold\">30</span> column names have been cleaned\n</pre>\n"
+          },
+          "metadata": {}
         },
-        "nteract": {
-          "transient": {
-            "deleting": false
-          }
+        {
+          "output_type": "display_data",
+          "data": {
+            "text/plain": "\u001b[1;36m15\u001b[0m column names have been cleaned\n",
+            "text/html": "<pre style=\"white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace\"><span style=\"color: #008080; text-decoration-color: #008080; font-weight: bold\">15</span> column names have been cleaned\n</pre>\n"
+          },
+          "metadata": {}
         },
-        "gather": {
-          "logged": 1682768263188
+        {
+          "output_type": "display_data",
+          "data": {
+            "text/plain": "\u001b[1;36m19\u001b[0m column names have been cleaned\n",
+            "text/html": "<pre style=\"white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace\"><span style=\"color: #008080; text-decoration-color: #008080; font-weight: bold\">19</span> column names have been cleaned\n</pre>\n"
+          },
+          "metadata": {}
         }
-      }
-    },
-    {
-      "cell_type": "code",
-      "source": [
-        "def scrape_table(url, table_id):\n",
-        "    response = requests.get(url)\n",
-        "    soup = BeautifulSoup(response.text, 'html.parser')\n",
-        "\n",
-        "    table = soup.find('table', {'id': table_id})\n",
-        "    header_rows = table.thead.find_all('tr')\n",
-        "    header_row = header_rows[-1]  # Use the last header row to get the correct headers\n",
-        "    headers = [th.text for th in header_row.find_all('th') if th.text != 'Rk']\n",
-        "\n",
-        "    rows = table.tbody.find_all('tr')\n",
-        "    data = []\n",
-        "    for row in rows:\n",
-        "        if row.get('class') and 'thead' in row['class']:\n",
-        "            continue\n",
-        "        data_row = [td.text for td in row.find_all('td') if td.get('data-stat') != 'ranker']\n",
-        "        data.append(data_row)\n",
-        "\n",
-        "    return pd.DataFrame(data, columns=headers)\n",
-        "\n",
-        "\n",
-        "year = 2020\n",
-        "base_url = 'https://www.pro-football-reference.com/years/{}/'"
       ],
-      "outputs": [],
-      "execution_count": 32,
-      "metadata": {
-        "jupyter": {
-          "source_hidden": false,
-          "outputs_hidden": false
-        },
-        "nteract": {
-          "transient": {
-            "deleting": false
-          }
-        },
-        "gather": {
-          "logged": 1682770476860
-        }
-      }
-    },
-    {
-      "cell_type": "code",
-      "source": [
-        "import requests\n",
-        "from bs4 import BeautifulSoup\n",
-        "import pandas as pd\n",
-        "\n",
-        "def scrape_table(url, table_id):\n",
-        "    response = requests.get(url)\n",
-        "    soup = BeautifulSoup(response.text, 'html.parser')\n",
-        "\n",
-        "    table = soup.find('table', {'id': table_id})\n",
-        "    headers = [th.text for th in table.thead.find_all('th') if th.text != 'Rk']\n",
-        "\n",
-        "    rows = table.tbody.find_all('tr')\n",
-        "    data = []\n",
-        "    for row in rows:\n",
-        "        if row.get('class') and 'thead' in row['class']:\n",
-        "            continue\n",
-        "        data_row = [td.text for td in row.find_all('td')]\n",
-        "        data.append(data_row)\n",
-        "\n",
-        "    df = pd.DataFrame(data, columns=headers)\n",
-        "    df = df.dropna(axis=1, how='all')  # Remove empty columns\n",
-        "    return df\n",
-        "\n",
-        "\n",
-        "\n",
-        "\n",
-        "\n"
-      ],
-      "outputs": [],
       "execution_count": 21,
       "metadata": {
         "jupyter": {
@@ -177,161 +100,148 @@
           }
         },
         "gather": {
-          "logged": 1682769561256
-        }
-      }
-    },
-    {
-      "cell_type": "code",
-      "source": [
-        "# Scrape passing data\n",
-        "passing_url = base_url.format(year) + 'passing.htm'\n",
-        "passing_df = scrape_table(passing_url, 'passing')\n",
-        "passing_df"
-      ],
-      "outputs": [
-        {
-          "output_type": "stream",
-          "name": "stdout",
-          "text": "Passing Data:\n"
-        },
-        {
-          "output_type": "execute_result",
-          "execution_count": 33,
-          "data": {
-            "text/plain": "               Player   Tm Age Pos   G  GS   QBrec  Cmp  Att  Cmp%  ...  \\\n0     Deshaun Watson*  HOU  25  QB  16  16  4-12-0  382  544  70.2  ...   \n1    Patrick Mahomes*  KAN  25  QB  15  15  14-1-0  390  588  66.3  ...   \n2           Tom Brady  TAM  43  QB  16  16  11-5-0  401  610  65.7  ...   \n3           Matt Ryan  ATL  35  QB  16  16  4-12-0  407  626  65.0  ...   \n4         Josh Allen*  BUF  24  QB  16  16  13-3-0  396  572  69.2  ...   \n..                ...  ...  ..  ..  ..  ..     ...  ...  ...   ...  ...   \n107        Brett Kern  TEN  34   P  13   0            0    1   0.0  ...   \n108        D.J. Moore  CAR  23  WR  15  14            0    1   0.0  ...   \n109       Zach Pascal  IND  26  WR  16  14            0    1   0.0  ...   \n110     Sammy Watkins  KAN  27  WR  10   9            0    1   0.0  ...   \n111     Isaiah Wright  WAS  23  WR  14   6            0    1   0.0  ...   \n\n       Y/G   Rate   QBR  Sk  Yds  Sk%  NY/A   ANY/A 4QC GWD  \n0    301.4  112.4  63.7  49  293  8.3  7.64    8.22          \n1    316.0  108.2  78.1  22  147  3.6  7.53    8.33   3   3  \n2    289.6  102.2  66.0  21  143  3.3  7.12    7.53   3   3  \n3    286.3   93.3  59.8  41  257  6.1  6.48    6.52          \n4    284.0  107.2  76.6  26  159  4.3  7.33    7.82   2   3  \n..     ...    ...   ...  ..  ...  ...   ...     ...  ..  ..  \n107    0.0   39.6   0.0   0    0  0.0  0.00    0.00          \n108    0.0   39.6         0    0  0.0  0.00    0.00          \n109    0.0   39.6   1.8   0    0  0.0  0.00    0.00          \n110    0.0    0.0   0.0   0    0  0.0  0.00  -45.00          \n111    0.0   39.6   2.8   0    0  0.0  0.00    0.00          \n\n[112 rows x 30 columns]",
-            "text/html": "<div>\n<style scoped>\n    .dataframe tbody tr th:only-of-type {\n        vertical-align: middle;\n    }\n\n    .dataframe tbody tr th {\n        vertical-align: top;\n    }\n\n    .dataframe thead th {\n        text-align: right;\n    }\n</style>\n<table border=\"1\" class=\"dataframe\">\n  <thead>\n    <tr style=\"text-align: right;\">\n      <th></th>\n      <th>Player</th>\n      <th>Tm</th>\n      <th>Age</th>\n      <th>Pos</th>\n      <th>G</th>\n      <th>GS</th>\n      <th>QBrec</th>\n      <th>Cmp</th>\n      <th>Att</th>\n      <th>Cmp%</th>\n      <th>...</th>\n      <th>Y/G</th>\n      <th>Rate</th>\n      <th>QBR</th>\n      <th>Sk</th>\n      <th>Yds</th>\n      <th>Sk%</th>\n      <th>NY/A</th>\n      <th>ANY/A</th>\n      <th>4QC</th>\n      <th>GWD</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <th>0</th>\n      <td>Deshaun Watson*</td>\n      <td>HOU</td>\n      <td>25</td>\n      <td>QB</td>\n      <td>16</td>\n      <td>16</td>\n      <td>4-12-0</td>\n      <td>382</td>\n      <td>544</td>\n      <td>70.2</td>\n      <td>...</td>\n      <td>301.4</td>\n      <td>112.4</td>\n      <td>63.7</td>\n      <td>49</td>\n      <td>293</td>\n      <td>8.3</td>\n      <td>7.64</td>\n      <td>8.22</td>\n      <td></td>\n      <td></td>\n    </tr>\n    <tr>\n      <th>1</th>\n      <td>Patrick Mahomes*</td>\n      <td>KAN</td>\n      <td>25</td>\n      <td>QB</td>\n      <td>15</td>\n      <td>15</td>\n      <td>14-1-0</td>\n      <td>390</td>\n      <td>588</td>\n      <td>66.3</td>\n      <td>...</td>\n      <td>316.0</td>\n      <td>108.2</td>\n      <td>78.1</td>\n      <td>22</td>\n      <td>147</td>\n      <td>3.6</td>\n      <td>7.53</td>\n      <td>8.33</td>\n      <td>3</td>\n      <td>3</td>\n    </tr>\n    <tr>\n      <th>2</th>\n      <td>Tom Brady</td>\n      <td>TAM</td>\n      <td>43</td>\n      <td>QB</td>\n      <td>16</td>\n      <td>16</td>\n      <td>11-5-0</td>\n      <td>401</td>\n      <td>610</td>\n      <td>65.7</td>\n      <td>...</td>\n      <td>289.6</td>\n      <td>102.2</td>\n      <td>66.0</td>\n      <td>21</td>\n      <td>143</td>\n      <td>3.3</td>\n      <td>7.12</td>\n      <td>7.53</td>\n      <td>3</td>\n      <td>3</td>\n    </tr>\n    <tr>\n      <th>3</th>\n      <td>Matt Ryan</td>\n      <td>ATL</td>\n      <td>35</td>\n      <td>QB</td>\n      <td>16</td>\n      <td>16</td>\n      <td>4-12-0</td>\n      <td>407</td>\n      <td>626</td>\n      <td>65.0</td>\n      <td>...</td>\n      <td>286.3</td>\n      <td>93.3</td>\n      <td>59.8</td>\n      <td>41</td>\n      <td>257</td>\n      <td>6.1</td>\n      <td>6.48</td>\n      <td>6.52</td>\n      <td></td>\n      <td></td>\n    </tr>\n    <tr>\n      <th>4</th>\n      <td>Josh Allen*</td>\n      <td>BUF</td>\n      <td>24</td>\n      <td>QB</td>\n      <td>16</td>\n      <td>16</td>\n      <td>13-3-0</td>\n      <td>396</td>\n      <td>572</td>\n      <td>69.2</td>\n      <td>...</td>\n      <td>284.0</td>\n      <td>107.2</td>\n      <td>76.6</td>\n      <td>26</td>\n      <td>159</td>\n      <td>4.3</td>\n      <td>7.33</td>\n      <td>7.82</td>\n      <td>2</td>\n      <td>3</td>\n    </tr>\n    <tr>\n      <th>...</th>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n    </tr>\n    <tr>\n      <th>107</th>\n      <td>Brett Kern</td>\n      <td>TEN</td>\n      <td>34</td>\n      <td>P</td>\n      <td>13</td>\n      <td>0</td>\n      <td></td>\n      <td>0</td>\n      <td>1</td>\n      <td>0.0</td>\n      <td>...</td>\n      <td>0.0</td>\n      <td>39.6</td>\n      <td>0.0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0.0</td>\n      <td>0.00</td>\n      <td>0.00</td>\n      <td></td>\n      <td></td>\n    </tr>\n    <tr>\n      <th>108</th>\n      <td>D.J. Moore</td>\n      <td>CAR</td>\n      <td>23</td>\n      <td>WR</td>\n      <td>15</td>\n      <td>14</td>\n      <td></td>\n      <td>0</td>\n      <td>1</td>\n      <td>0.0</td>\n      <td>...</td>\n      <td>0.0</td>\n      <td>39.6</td>\n      <td></td>\n      <td>0</td>\n      <td>0</td>\n      <td>0.0</td>\n      <td>0.00</td>\n      <td>0.00</td>\n      <td></td>\n      <td></td>\n    </tr>\n    <tr>\n      <th>109</th>\n      <td>Zach Pascal</td>\n      <td>IND</td>\n      <td>26</td>\n      <td>WR</td>\n      <td>16</td>\n      <td>14</td>\n      <td></td>\n      <td>0</td>\n      <td>1</td>\n      <td>0.0</td>\n      <td>...</td>\n      <td>0.0</td>\n      <td>39.6</td>\n      <td>1.8</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0.0</td>\n      <td>0.00</td>\n      <td>0.00</td>\n      <td></td>\n      <td></td>\n    </tr>\n    <tr>\n      <th>110</th>\n      <td>Sammy Watkins</td>\n      <td>KAN</td>\n      <td>27</td>\n      <td>WR</td>\n      <td>10</td>\n      <td>9</td>\n      <td></td>\n      <td>0</td>\n      <td>1</td>\n      <td>0.0</td>\n      <td>...</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0.0</td>\n      <td>0.00</td>\n      <td>-45.00</td>\n      <td></td>\n      <td></td>\n    </tr>\n    <tr>\n      <th>111</th>\n      <td>Isaiah Wright</td>\n      <td>WAS</td>\n      <td>23</td>\n      <td>WR</td>\n      <td>14</td>\n      <td>6</td>\n      <td></td>\n      <td>0</td>\n      <td>1</td>\n      <td>0.0</td>\n      <td>...</td>\n      <td>0.0</td>\n      <td>39.6</td>\n      <td>2.8</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0.0</td>\n      <td>0.00</td>\n      <td>0.00</td>\n      <td></td>\n      <td></td>\n    </tr>\n  </tbody>\n</table>\n<p>112 rows × 30 columns</p>\n</div>"
-          },
-          "metadata": {}
-        }
-      ],
-      "execution_count": 33,
-      "metadata": {
-        "jupyter": {
-          "source_hidden": false,
-          "outputs_hidden": false
-        },
-        "nteract": {
-          "transient": {
-            "deleting": false
-          }
-        },
-        "gather": {
-          "logged": 1682770482287
-        }
-      }
-    },
-    {
-      "cell_type": "code",
-      "source": [
-        "# Scrape rushing data\n",
-        "rushing_url = base_url.format(year) + 'rushing.htm'\n",
-        "rushing_df = scrape_table(rushing_url, 'rushing')\n",
-        "rushing_df"
-      ],
-      "outputs": [
-        {
-          "output_type": "execute_result",
-          "execution_count": 34,
-          "data": {
-            "text/plain": "                Player   Tm Age Pos   G  GS  Att   Yds  TD  1D Lng  Y/A  \\\n0     Derrick Henry *+  TEN  26  RB  16  16  378  2027  17  98  94  5.4   \n1         Dalvin Cook*  MIN  25  RB  14  14  312  1557  16  91  70  5.0   \n2         Josh Jacobs*  LVR  22  RB  15  15  273  1065  12  61  28  3.9   \n3     David Montgomery  CHI  23  RB  15  14  247  1070   8  59  80  4.3   \n4      Ezekiel Elliott  DAL  25  RB  15  15  244   979   6  62  31  4.0   \n..                 ...  ...  ..  ..  ..  ..  ...   ...  ..  ..  ..  ...   \n367  Jonathan Williams  DET  26  RB   5   0    1     5   0   0   5  5.0   \n368      Mike Williams  LAC  26  WR  15  11    1     1   0   0   1  1.0   \n369         Javon Wims  CHI  26  WR  13   1    1     2   0   0   2  2.0   \n370  Olamide Zaccheaus  ATL  23  WR  11   2    1     0   0   0   0  0.0   \n371    Brandon Zylstra  CAR  27  WR  16   2    1     1   0   0   1  1.0   \n\n       Y/G Fmb  \n0    126.7   3  \n1    111.2   5  \n2     71.0   2  \n3     71.3   1  \n4     65.3   6  \n..     ...  ..  \n367    1.0   1  \n368    0.1   0  \n369    0.2   0  \n370    0.0   0  \n371    0.1   0  \n\n[372 rows x 14 columns]",
-            "text/html": "<div>\n<style scoped>\n    .dataframe tbody tr th:only-of-type {\n        vertical-align: middle;\n    }\n\n    .dataframe tbody tr th {\n        vertical-align: top;\n    }\n\n    .dataframe thead th {\n        text-align: right;\n    }\n</style>\n<table border=\"1\" class=\"dataframe\">\n  <thead>\n    <tr style=\"text-align: right;\">\n      <th></th>\n      <th>Player</th>\n      <th>Tm</th>\n      <th>Age</th>\n      <th>Pos</th>\n      <th>G</th>\n      <th>GS</th>\n      <th>Att</th>\n      <th>Yds</th>\n      <th>TD</th>\n      <th>1D</th>\n      <th>Lng</th>\n      <th>Y/A</th>\n      <th>Y/G</th>\n      <th>Fmb</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <th>0</th>\n      <td>Derrick Henry *+</td>\n      <td>TEN</td>\n      <td>26</td>\n      <td>RB</td>\n      <td>16</td>\n      <td>16</td>\n      <td>378</td>\n      <td>2027</td>\n      <td>17</td>\n      <td>98</td>\n      <td>94</td>\n      <td>5.4</td>\n      <td>126.7</td>\n      <td>3</td>\n    </tr>\n    <tr>\n      <th>1</th>\n      <td>Dalvin Cook*</td>\n      <td>MIN</td>\n      <td>25</td>\n      <td>RB</td>\n      <td>14</td>\n      <td>14</td>\n      <td>312</td>\n      <td>1557</td>\n      <td>16</td>\n      <td>91</td>\n      <td>70</td>\n      <td>5.0</td>\n      <td>111.2</td>\n      <td>5</td>\n    </tr>\n    <tr>\n      <th>2</th>\n      <td>Josh Jacobs*</td>\n      <td>LVR</td>\n      <td>22</td>\n      <td>RB</td>\n      <td>15</td>\n      <td>15</td>\n      <td>273</td>\n      <td>1065</td>\n      <td>12</td>\n      <td>61</td>\n      <td>28</td>\n      <td>3.9</td>\n      <td>71.0</td>\n      <td>2</td>\n    </tr>\n    <tr>\n      <th>3</th>\n      <td>David Montgomery</td>\n      <td>CHI</td>\n      <td>23</td>\n      <td>RB</td>\n      <td>15</td>\n      <td>14</td>\n      <td>247</td>\n      <td>1070</td>\n      <td>8</td>\n      <td>59</td>\n      <td>80</td>\n      <td>4.3</td>\n      <td>71.3</td>\n      <td>1</td>\n    </tr>\n    <tr>\n      <th>4</th>\n      <td>Ezekiel Elliott</td>\n      <td>DAL</td>\n      <td>25</td>\n      <td>RB</td>\n      <td>15</td>\n      <td>15</td>\n      <td>244</td>\n      <td>979</td>\n      <td>6</td>\n      <td>62</td>\n      <td>31</td>\n      <td>4.0</td>\n      <td>65.3</td>\n      <td>6</td>\n    </tr>\n    <tr>\n      <th>...</th>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n    </tr>\n    <tr>\n      <th>367</th>\n      <td>Jonathan Williams</td>\n      <td>DET</td>\n      <td>26</td>\n      <td>RB</td>\n      <td>5</td>\n      <td>0</td>\n      <td>1</td>\n      <td>5</td>\n      <td>0</td>\n      <td>0</td>\n      <td>5</td>\n      <td>5.0</td>\n      <td>1.0</td>\n      <td>1</td>\n    </tr>\n    <tr>\n      <th>368</th>\n      <td>Mike Williams</td>\n      <td>LAC</td>\n      <td>26</td>\n      <td>WR</td>\n      <td>15</td>\n      <td>11</td>\n      <td>1</td>\n      <td>1</td>\n      <td>0</td>\n      <td>0</td>\n      <td>1</td>\n      <td>1.0</td>\n      <td>0.1</td>\n      <td>0</td>\n    </tr>\n    <tr>\n      <th>369</th>\n      <td>Javon Wims</td>\n      <td>CHI</td>\n      <td>26</td>\n      <td>WR</td>\n      <td>13</td>\n      <td>1</td>\n      <td>1</td>\n      <td>2</td>\n      <td>0</td>\n      <td>0</td>\n      <td>2</td>\n      <td>2.0</td>\n      <td>0.2</td>\n      <td>0</td>\n    </tr>\n    <tr>\n      <th>370</th>\n      <td>Olamide Zaccheaus</td>\n      <td>ATL</td>\n      <td>23</td>\n      <td>WR</td>\n      <td>11</td>\n      <td>2</td>\n      <td>1</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>0</td>\n    </tr>\n    <tr>\n      <th>371</th>\n      <td>Brandon Zylstra</td>\n      <td>CAR</td>\n      <td>27</td>\n      <td>WR</td>\n      <td>16</td>\n      <td>2</td>\n      <td>1</td>\n      <td>1</td>\n      <td>0</td>\n      <td>0</td>\n      <td>1</td>\n      <td>1.0</td>\n      <td>0.1</td>\n      <td>0</td>\n    </tr>\n  </tbody>\n</table>\n<p>372 rows × 14 columns</p>\n</div>"
-          },
-          "metadata": {}
-        }
-      ],
-      "execution_count": 34,
-      "metadata": {
-        "jupyter": {
-          "source_hidden": false,
-          "outputs_hidden": false
-        },
-        "nteract": {
-          "transient": {
-            "deleting": false
-          }
-        },
-        "gather": {
-          "logged": 1682770497406
-        }
-      }
-    },
-    {
-      "cell_type": "code",
-      "source": [
-        "# Scrape receiving data\n",
-        "receiving_url = base_url.format(year) + 'receiving.htm'\n",
-        "receiving_df = scrape_table(receiving_url, 'receiving')\n",
-        "receiving_df"
-      ],
-      "outputs": [
-        {
-          "output_type": "execute_result",
-          "execution_count": 35,
-          "data": {
-            "text/plain": "               Player   Tm Age Pos   G  GS  Tgt  Rec  Ctch%   Yds   Y/R  TD  \\\n0      Stefon Diggs*+  BUF  27  WR  16  15  166  127  76.5%  1535  12.1   8   \n1     Davante Adams*+  GNB  28  WR  14  14  149  115  77.2%  1374  11.9  18   \n2    DeAndre Hopkins*  ARI  28  WR  16  16  160  115  71.9%  1407  12.2   6   \n3      Darren Waller*  LVR  28  TE  16  15  145  107  73.8%  1196  11.2   9   \n4      Travis Kelce*+  KAN  31  TE  15  15  145  105  72.4%  1416  13.5  11   \n..                ...  ...  ..  ..  ..  ..  ...  ...    ...   ...   ...  ..   \n520  Matthew Stafford  DET  32  QB  16  16    1    0   0.0%     0         0   \n521     Taywan Taylor  CLE  25  WR   3   0    1    0   0.0%     0         0   \n522       Noah Togiai  IND  23  TE   4   0    1    0   0.0%     0         0   \n523    Eric Tomlinson  2TM  28  TE   7   2    1    0   0.0%     0         0   \n524       P.J. Walker  CAR  25  QB   4   1    1    0   0.0%     0         0   \n\n     1D Lng Y/Tgt  R/G   Y/G Fmb  \n0    73  55   9.2  7.9  95.9   0  \n1    73  56   9.2  8.2  98.1   1  \n2    75  60   8.8  7.2  87.9   3  \n3    68  38   8.2  6.7  74.8   2  \n4    79  45   9.8  7.0  94.4   1  \n..   ..  ..   ...  ...   ...  ..  \n520   0   0   0.0  0.0   0.0   2  \n521   0   0   0.0  0.0   0.0      \n522   0   0   0.0  0.0   0.0      \n523   0   0   0.0  0.0   0.0      \n524   0   0   0.0  0.0   0.0   1  \n\n[525 rows x 18 columns]",
-            "text/html": "<div>\n<style scoped>\n    .dataframe tbody tr th:only-of-type {\n        vertical-align: middle;\n    }\n\n    .dataframe tbody tr th {\n        vertical-align: top;\n    }\n\n    .dataframe thead th {\n        text-align: right;\n    }\n</style>\n<table border=\"1\" class=\"dataframe\">\n  <thead>\n    <tr style=\"text-align: right;\">\n      <th></th>\n      <th>Player</th>\n      <th>Tm</th>\n      <th>Age</th>\n      <th>Pos</th>\n      <th>G</th>\n      <th>GS</th>\n      <th>Tgt</th>\n      <th>Rec</th>\n      <th>Ctch%</th>\n      <th>Yds</th>\n      <th>Y/R</th>\n      <th>TD</th>\n      <th>1D</th>\n      <th>Lng</th>\n      <th>Y/Tgt</th>\n      <th>R/G</th>\n      <th>Y/G</th>\n      <th>Fmb</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <th>0</th>\n      <td>Stefon Diggs*+</td>\n      <td>BUF</td>\n      <td>27</td>\n      <td>WR</td>\n      <td>16</td>\n      <td>15</td>\n      <td>166</td>\n      <td>127</td>\n      <td>76.5%</td>\n      <td>1535</td>\n      <td>12.1</td>\n      <td>8</td>\n      <td>73</td>\n      <td>55</td>\n      <td>9.2</td>\n      <td>7.9</td>\n      <td>95.9</td>\n      <td>0</td>\n    </tr>\n    <tr>\n      <th>1</th>\n      <td>Davante Adams*+</td>\n      <td>GNB</td>\n      <td>28</td>\n      <td>WR</td>\n      <td>14</td>\n      <td>14</td>\n      <td>149</td>\n      <td>115</td>\n      <td>77.2%</td>\n      <td>1374</td>\n      <td>11.9</td>\n      <td>18</td>\n      <td>73</td>\n      <td>56</td>\n      <td>9.2</td>\n      <td>8.2</td>\n      <td>98.1</td>\n      <td>1</td>\n    </tr>\n    <tr>\n      <th>2</th>\n      <td>DeAndre Hopkins*</td>\n      <td>ARI</td>\n      <td>28</td>\n      <td>WR</td>\n      <td>16</td>\n      <td>16</td>\n      <td>160</td>\n      <td>115</td>\n      <td>71.9%</td>\n      <td>1407</td>\n      <td>12.2</td>\n      <td>6</td>\n      <td>75</td>\n      <td>60</td>\n      <td>8.8</td>\n      <td>7.2</td>\n      <td>87.9</td>\n      <td>3</td>\n    </tr>\n    <tr>\n      <th>3</th>\n      <td>Darren Waller*</td>\n      <td>LVR</td>\n      <td>28</td>\n      <td>TE</td>\n      <td>16</td>\n      <td>15</td>\n      <td>145</td>\n      <td>107</td>\n      <td>73.8%</td>\n      <td>1196</td>\n      <td>11.2</td>\n      <td>9</td>\n      <td>68</td>\n      <td>38</td>\n      <td>8.2</td>\n      <td>6.7</td>\n      <td>74.8</td>\n      <td>2</td>\n    </tr>\n    <tr>\n      <th>4</th>\n      <td>Travis Kelce*+</td>\n      <td>KAN</td>\n      <td>31</td>\n      <td>TE</td>\n      <td>15</td>\n      <td>15</td>\n      <td>145</td>\n      <td>105</td>\n      <td>72.4%</td>\n      <td>1416</td>\n      <td>13.5</td>\n      <td>11</td>\n      <td>79</td>\n      <td>45</td>\n      <td>9.8</td>\n      <td>7.0</td>\n      <td>94.4</td>\n      <td>1</td>\n    </tr>\n    <tr>\n      <th>...</th>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n    </tr>\n    <tr>\n      <th>520</th>\n      <td>Matthew Stafford</td>\n      <td>DET</td>\n      <td>32</td>\n      <td>QB</td>\n      <td>16</td>\n      <td>16</td>\n      <td>1</td>\n      <td>0</td>\n      <td>0.0%</td>\n      <td>0</td>\n      <td></td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>2</td>\n    </tr>\n    <tr>\n      <th>521</th>\n      <td>Taywan Taylor</td>\n      <td>CLE</td>\n      <td>25</td>\n      <td>WR</td>\n      <td>3</td>\n      <td>0</td>\n      <td>1</td>\n      <td>0</td>\n      <td>0.0%</td>\n      <td>0</td>\n      <td></td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td></td>\n    </tr>\n    <tr>\n      <th>522</th>\n      <td>Noah Togiai</td>\n      <td>IND</td>\n      <td>23</td>\n      <td>TE</td>\n      <td>4</td>\n      <td>0</td>\n      <td>1</td>\n      <td>0</td>\n      <td>0.0%</td>\n      <td>0</td>\n      <td></td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td></td>\n    </tr>\n    <tr>\n      <th>523</th>\n      <td>Eric Tomlinson</td>\n      <td>2TM</td>\n      <td>28</td>\n      <td>TE</td>\n      <td>7</td>\n      <td>2</td>\n      <td>1</td>\n      <td>0</td>\n      <td>0.0%</td>\n      <td>0</td>\n      <td></td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td></td>\n    </tr>\n    <tr>\n      <th>524</th>\n      <td>P.J. Walker</td>\n      <td>CAR</td>\n      <td>25</td>\n      <td>QB</td>\n      <td>4</td>\n      <td>1</td>\n      <td>1</td>\n      <td>0</td>\n      <td>0.0%</td>\n      <td>0</td>\n      <td></td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>0.0</td>\n      <td>1</td>\n    </tr>\n  </tbody>\n</table>\n<p>525 rows × 18 columns</p>\n</div>"
-          },
-          "metadata": {}
-        }
-      ],
-      "execution_count": 35,
-      "metadata": {
-        "jupyter": {
-          "source_hidden": false,
-          "outputs_hidden": false
-        },
-        "nteract": {
-          "transient": {
-            "deleting": false
-          }
-        },
-        "gather": {
-          "logged": 1682770560711
-        }
-      }
-    },
-    {
-      "cell_type": "code",
-      "source": [
-        "# Scrape defense data\n",
-        "defense_url = base_url.format(year) + 'defense.htm'\n",
-        "defense_df = scrape_table(defense_url, 'defense')\n",
-        "defense_df"
-      ],
-      "outputs": [
-        {
-          "output_type": "execute_result",
-          "execution_count": 36,
-          "data": {
-            "text/plain": "               Player   Tm Age   Pos   G  GS Int Yds TD Lng  ... FR Yds TD  \\\n0     Zach Cunningham  HOU  26  LILB  16  16   0   0  0   0  ...  0   0  0   \n1        Roquan Smith  CHI  23  LILB  16  16   2  16  0  11  ...  1   0  0   \n2         Devin White  TAM  22  LILB  15  15   0   0  0   0  ...  1   2  0   \n3      Neville Hewitt  NYJ  27  RILB  16  16   0   0  0   0  ...  1  17  0   \n4        Jordan Poyer  BUF  29    SS  16  16   2  14  0  14  ...  0   0  0   \n...               ...  ...  ..   ...  ..  ..  ..  .. ..  ..  ... ..  .. ..   \n1358      Jeff Wilson  SFO  25    RB  12   3          0      ...  1   0  0   \n1359       Javon Wims  CHI  26    WR  13   1          0      ...         0   \n1360      Isaiah Wynn  NWE  25    LT  10  10          0      ...  1   0  0   \n1361      T.J. Yeldon  BUF  27    RB   3   0          0      ...  1   0  0   \n1362  Brandon Zylstra  CAR  27    WR  16   2          0      ...  1   0  1   \n\n       Sk Comb Solo Ast TFL QBHits Sfty  \n0     3.0  164  106  58   7      4       \n1     4.0  139   98  41  18      6       \n2     9.0  140   97  43  15     16       \n3     2.0  134   91  43   6      4       \n4     2.0  124   91  33   4      4       \n...   ...  ...  ...  ..  ..    ...  ...  \n1358  0.0                                \n1359  0.0    1    0   1   0      0       \n1360  0.0                                \n1361  0.0                                \n1362  0.0                                \n\n[1363 rows x 23 columns]",
-            "text/html": "<div>\n<style scoped>\n    .dataframe tbody tr th:only-of-type {\n        vertical-align: middle;\n    }\n\n    .dataframe tbody tr th {\n        vertical-align: top;\n    }\n\n    .dataframe thead th {\n        text-align: right;\n    }\n</style>\n<table border=\"1\" class=\"dataframe\">\n  <thead>\n    <tr style=\"text-align: right;\">\n      <th></th>\n      <th>Player</th>\n      <th>Tm</th>\n      <th>Age</th>\n      <th>Pos</th>\n      <th>G</th>\n      <th>GS</th>\n      <th>Int</th>\n      <th>Yds</th>\n      <th>TD</th>\n      <th>Lng</th>\n      <th>...</th>\n      <th>FR</th>\n      <th>Yds</th>\n      <th>TD</th>\n      <th>Sk</th>\n      <th>Comb</th>\n      <th>Solo</th>\n      <th>Ast</th>\n      <th>TFL</th>\n      <th>QBHits</th>\n      <th>Sfty</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <th>0</th>\n      <td>Zach Cunningham</td>\n      <td>HOU</td>\n      <td>26</td>\n      <td>LILB</td>\n      <td>16</td>\n      <td>16</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>...</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>3.0</td>\n      <td>164</td>\n      <td>106</td>\n      <td>58</td>\n      <td>7</td>\n      <td>4</td>\n      <td></td>\n    </tr>\n    <tr>\n      <th>1</th>\n      <td>Roquan Smith</td>\n      <td>CHI</td>\n      <td>23</td>\n      <td>LILB</td>\n      <td>16</td>\n      <td>16</td>\n      <td>2</td>\n      <td>16</td>\n      <td>0</td>\n      <td>11</td>\n      <td>...</td>\n      <td>1</td>\n      <td>0</td>\n      <td>0</td>\n      <td>4.0</td>\n      <td>139</td>\n      <td>98</td>\n      <td>41</td>\n      <td>18</td>\n      <td>6</td>\n      <td></td>\n    </tr>\n    <tr>\n      <th>2</th>\n      <td>Devin White</td>\n      <td>TAM</td>\n      <td>22</td>\n      <td>LILB</td>\n      <td>15</td>\n      <td>15</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>...</td>\n      <td>1</td>\n      <td>2</td>\n      <td>0</td>\n      <td>9.0</td>\n      <td>140</td>\n      <td>97</td>\n      <td>43</td>\n      <td>15</td>\n      <td>16</td>\n      <td></td>\n    </tr>\n    <tr>\n      <th>3</th>\n      <td>Neville Hewitt</td>\n      <td>NYJ</td>\n      <td>27</td>\n      <td>RILB</td>\n      <td>16</td>\n      <td>16</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>...</td>\n      <td>1</td>\n      <td>17</td>\n      <td>0</td>\n      <td>2.0</td>\n      <td>134</td>\n      <td>91</td>\n      <td>43</td>\n      <td>6</td>\n      <td>4</td>\n      <td></td>\n    </tr>\n    <tr>\n      <th>4</th>\n      <td>Jordan Poyer</td>\n      <td>BUF</td>\n      <td>29</td>\n      <td>SS</td>\n      <td>16</td>\n      <td>16</td>\n      <td>2</td>\n      <td>14</td>\n      <td>0</td>\n      <td>14</td>\n      <td>...</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0</td>\n      <td>2.0</td>\n      <td>124</td>\n      <td>91</td>\n      <td>33</td>\n      <td>4</td>\n      <td>4</td>\n      <td></td>\n    </tr>\n    <tr>\n      <th>...</th>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n    </tr>\n    <tr>\n      <th>1358</th>\n      <td>Jeff Wilson</td>\n      <td>SFO</td>\n      <td>25</td>\n      <td>RB</td>\n      <td>12</td>\n      <td>3</td>\n      <td></td>\n      <td></td>\n      <td>0</td>\n      <td></td>\n      <td>...</td>\n      <td>1</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0.0</td>\n      <td></td>\n      <td></td>\n      <td></td>\n      <td></td>\n      <td></td>\n      <td></td>\n    </tr>\n    <tr>\n      <th>1359</th>\n      <td>Javon Wims</td>\n      <td>CHI</td>\n      <td>26</td>\n      <td>WR</td>\n      <td>13</td>\n      <td>1</td>\n      <td></td>\n      <td></td>\n      <td>0</td>\n      <td></td>\n      <td>...</td>\n      <td></td>\n      <td></td>\n      <td>0</td>\n      <td>0.0</td>\n      <td>1</td>\n      <td>0</td>\n      <td>1</td>\n      <td>0</td>\n      <td>0</td>\n      <td></td>\n    </tr>\n    <tr>\n      <th>1360</th>\n      <td>Isaiah Wynn</td>\n      <td>NWE</td>\n      <td>25</td>\n      <td>LT</td>\n      <td>10</td>\n      <td>10</td>\n      <td></td>\n      <td></td>\n      <td>0</td>\n      <td></td>\n      <td>...</td>\n      <td>1</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0.0</td>\n      <td></td>\n      <td></td>\n      <td></td>\n      <td></td>\n      <td></td>\n      <td></td>\n    </tr>\n    <tr>\n      <th>1361</th>\n      <td>T.J. Yeldon</td>\n      <td>BUF</td>\n      <td>27</td>\n      <td>RB</td>\n      <td>3</td>\n      <td>0</td>\n      <td></td>\n      <td></td>\n      <td>0</td>\n      <td></td>\n      <td>...</td>\n      <td>1</td>\n      <td>0</td>\n      <td>0</td>\n      <td>0.0</td>\n      <td></td>\n      <td></td>\n      <td></td>\n      <td></td>\n      <td></td>\n      <td></td>\n    </tr>\n    <tr>\n      <th>1362</th>\n      <td>Brandon Zylstra</td>\n      <td>CAR</td>\n      <td>27</td>\n      <td>WR</td>\n      <td>16</td>\n      <td>2</td>\n      <td></td>\n      <td></td>\n      <td>0</td>\n      <td></td>\n      <td>...</td>\n      <td>1</td>\n      <td>0</td>\n      <td>1</td>\n      <td>0.0</td>\n      <td></td>\n      <td></td>\n      <td></td>\n      <td></td>\n      <td></td>\n      <td></td>\n    </tr>\n  </tbody>\n</table>\n<p>1363 rows × 23 columns</p>\n</div>"
-          },
-          "metadata": {}
-        }
-      ],
-      "execution_count": 36,
-      "metadata": {
-        "jupyter": {
-          "source_hidden": false,
-          "outputs_hidden": false
-        },
-        "nteract": {
-          "transient": {
-            "deleting": false
-          }
-        },
-        "gather": {
-          "logged": 1682770566125
+          "logged": 1682874976258
         }
       }
     },
     {
       "cell_type": "markdown",
       "source": [
-        "Step: Change % to actual number"
+        "Step: Calculate draft kings points"
       ],
       "metadata": {
+        "nteract": {
+          "transient": {
+            "deleting": false
+          }
+        }
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Passing TD: +4 points\n",
+        "Rushing/Receiving TD: +6 points\n",
+        "Passing yards: +0.04 points per yard\n",
+        "Rushing/Receiving yards: +0.1 points per yard\n",
+        "Interception: -1 point\n",
+        "Fumble lost: -2 points"
+      ],
+      "metadata": {
+        "nteract": {
+          "transient": {
+            "deleting": false
+          }
+        }
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "receiving_data[\"yds_points\"] = receiving_data[\"yds\"].astype(int) * 0.1"
+      ],
+      "outputs": [],
+      "execution_count": 22,
+      "metadata": {
+        "jupyter": {
+          "source_hidden": false,
+          "outputs_hidden": false
+        },
+        "nteract": {
+          "transient": {
+            "deleting": false
+          }
+        },
+        "gather": {
+          "logged": 1682874983924
+        }
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "rushing_data[\"yds_points\"] = rushing_data[\"yds\"].astype(int) * 0.1\n",
+        "rushing_data[\"fmb_points\"] = rushing_data[\"fmb\"].astype(int) * -2"
+      ],
+      "outputs": [],
+      "execution_count": 24,
+      "metadata": {
+        "jupyter": {
+          "source_hidden": false,
+          "outputs_hidden": false
+        },
+        "nteract": {
+          "transient": {
+            "deleting": false
+          }
+        },
+        "gather": {
+          "logged": 1682874999659
+        }
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "passing_data[\"td_points\"] = passing_data[\"td\"].astype(int) * 4\n",
+        "passing_data[\"yds_points\"] = passing_data[\"yds\"].astype(int) * 0.04\n",
+        "passing_data[\"int_points\"] = passing_data[\"int\"].astype(int) * -1"
+      ],
+      "outputs": [],
+      "execution_count": 25,
+      "metadata": {
+        "jupyter": {
+          "source_hidden": false,
+          "outputs_hidden": false
+        },
+        "nteract": {
+          "transient": {
+            "deleting": false
+          }
+        },
+        "gather": {
+          "logged": 1682875008639
+        }
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "passing_data.to_parquet(\"passing_data_points.parquet\")\n",
+        "rushing_data.to_parquet(\"rushing_data_points.parquet\")\n",
+        "receiving_data.to_parquet(\"receiving_data_points.parquet\")"
+      ],
+      "outputs": [],
+      "execution_count": 26,
+      "metadata": {
+        "jupyter": {
+          "source_hidden": false,
+          "outputs_hidden": false
+        },
+        "nteract": {
+          "transient": {
+            "deleting": false
+          }
+        },
+        "gather": {
+          "logged": 1682875011893
+        }
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "passing_data.to_parquet(\"passing_data_points.csv\")\n",
+        "rushing_data.to_parquet(\"rushing_data_points.csv\")\n",
+        "receiving_data.to_parquet(\"receiving_data_points.csv\")"
+      ],
+      "outputs": [],
+      "execution_count": null,
+      "metadata": {
+        "jupyter": {
+          "source_hidden": false,
+          "outputs_hidden": false
+        },
         "nteract": {
           "transient": {
             "deleting": false
