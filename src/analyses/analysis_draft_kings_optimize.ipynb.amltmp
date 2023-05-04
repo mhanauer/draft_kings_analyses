@@ -47,10 +47,10 @@
         "path_data = here(\"./data\")\n",
         "os.chdir(path_data)\n",
         "\n",
-        "data_draft_kings = pd.read_parquet(\"data_draft_kings_analysis_week.parquet\")"
+        "data_draft_kings = pd.read_csv(\"draft_kings_2021_2022.csv\")"
       ],
       "outputs": [],
-      "execution_count": 3,
+      "execution_count": 1,
       "metadata": {
         "jupyter": {
           "source_hidden": false,
@@ -62,7 +62,7 @@
           }
         },
         "gather": {
-          "logged": 1682981073135
+          "logged": 1683228133495
         }
       }
     },
@@ -74,15 +74,15 @@
       "outputs": [
         {
           "output_type": "execute_result",
-          "execution_count": 4,
+          "execution_count": 2,
           "data": {
-            "text/plain": "    week     points       salary  reduction     value  ownership_%        wr  \\\n0      1  23.433704  5551.851852   5.551852  4.205000     0.079722  0.333333   \n1      2  25.820741  5548.148148   5.548148  4.539630     0.084519  0.333333   \n2      3  24.750370  5514.814815   5.514815  4.588148     0.099741  0.333333   \n3      4  27.672593  5548.148148   5.548148  5.075556     0.095704  0.333333   \n4      5  28.552593  5529.629630   5.529630  5.163333     0.133333  0.333333   \n5      6  25.523704  5555.555556   5.555556  4.627778     0.125074  0.333333   \n6      7  26.191111  5551.851852   5.551852  4.969259     0.105296  0.333333   \n7      8  24.917778  5533.333333   5.533333  4.690370     0.132593  0.333333   \n8      9  22.568148  5544.444444   5.544444  4.149259     0.128926  0.333333   \n9     10  23.158519  5548.148148   5.548148  4.432963     0.152667  0.333333   \n10    11  25.429630  5551.851852   5.551852  4.374815     0.055148  0.333333   \n11    12  24.788148  5548.148148   5.548148  4.575185     0.098778  0.333333   \n12    13  26.777037  5507.407407   5.507407  4.828889     0.148481  0.333333   \n13    14  24.442963  5548.148148   5.548148  4.506296     0.089148  0.333333   \n14    15  24.418519  5555.555556   5.555556  4.462593     0.176037  0.333333   \n15    16  29.214815  5540.740741   5.540741  5.342222     0.146667  0.333333   \n16    17  27.830370  5551.851852   5.551852  5.062963     0.109222  0.333333   \n17    18  23.748148  5544.444444   5.544444  4.734074     0.096037  0.333333   \n18    19  22.076296  5529.629630   5.529630  3.965185     0.324889  0.333333   \n19    20  22.515556  5540.740741   5.540741  4.106667     0.229667  0.333333   \n\n          rb        qb        te  ...  rashod_bateman  buccaneers  \\\n0   0.222222  0.111111  0.111111  ...        0.000000    0.000000   \n1   0.222222  0.111111  0.111111  ...        0.000000    0.000000   \n2   0.222222  0.111111  0.111111  ...        0.000000    0.000000   \n3   0.222222  0.111111  0.111111  ...        0.000000    0.000000   \n4   0.222222  0.111111  0.111111  ...        0.000000    0.000000   \n5   0.222222  0.111111  0.111111  ...        0.000000    0.000000   \n6   0.222222  0.111111  0.111111  ...        0.037037    0.037037   \n7   0.222222  0.111111  0.111111  ...        0.000000    0.000000   \n8   0.222222  0.111111  0.111111  ...        0.000000    0.000000   \n9   0.222222  0.111111  0.111111  ...        0.000000    0.000000   \n10  0.222222  0.111111  0.111111  ...        0.000000    0.000000   \n11  0.222222  0.111111  0.111111  ...        0.000000    0.000000   \n12  0.222222  0.111111  0.111111  ...        0.000000    0.000000   \n13  0.222222  0.111111  0.111111  ...        0.000000    0.000000   \n14  0.222222  0.111111  0.111111  ...        0.000000    0.000000   \n15  0.222222  0.111111  0.111111  ...        0.000000    0.000000   \n16  0.222222  0.111111  0.111111  ...        0.000000    0.000000   \n17  0.222222  0.111111  0.111111  ...        0.000000    0.000000   \n18  0.222222  0.111111  0.111111  ...        0.000000    0.000000   \n19  0.222222  0.111111  0.111111  ...        0.000000    0.000000   \n\n    henry_ruggs  ricky_seals_jones  noah_fant  donovan_jones  steelers  \\\n0      0.000000           0.000000   0.000000       0.000000  0.000000   \n1      0.000000           0.000000   0.000000       0.000000  0.000000   \n2      0.000000           0.000000   0.000000       0.000000  0.000000   \n3      0.000000           0.000000   0.000000       0.000000  0.000000   \n4      0.000000           0.000000   0.000000       0.000000  0.000000   \n5      0.037037           0.037037   0.037037       0.037037  0.000000   \n6      0.000000           0.000000   0.000000       0.000000  0.000000   \n7      0.000000           0.000000   0.000000       0.000000  0.000000   \n8      0.000000           0.000000   0.000000       0.000000  0.000000   \n9      0.000000           0.000000   0.000000       0.000000  0.000000   \n10     0.000000           0.000000   0.000000       0.000000  0.000000   \n11     0.000000           0.000000   0.000000       0.000000  0.000000   \n12     0.000000           0.000000   0.000000       0.000000  0.000000   \n13     0.000000           0.000000   0.000000       0.000000  0.000000   \n14     0.000000           0.000000   0.000000       0.000000  0.000000   \n15     0.000000           0.000000   0.000000       0.000000  0.000000   \n16     0.000000           0.000000   0.000000       0.000000  0.000000   \n17     0.000000           0.000000   0.000000       0.000000  0.000000   \n18     0.000000           0.000000   0.000000       0.000000  0.000000   \n19     0.000000           0.000000   0.000000       0.000000  0.037037   \n\n           1         2         3  \n0   0.333333  0.333333  0.333333  \n1   0.333333  0.333333  0.333333  \n2   0.333333  0.333333  0.333333  \n3   0.333333  0.333333  0.333333  \n4   0.333333  0.333333  0.333333  \n5   0.333333  0.333333  0.333333  \n6   0.333333  0.333333  0.333333  \n7   0.333333  0.333333  0.333333  \n8   0.333333  0.333333  0.333333  \n9   0.333333  0.333333  0.333333  \n10  0.333333  0.333333  0.333333  \n11  0.333333  0.333333  0.333333  \n12  0.333333  0.333333  0.333333  \n13  0.333333  0.333333  0.333333  \n14  0.333333  0.333333  0.333333  \n15  0.333333  0.333333  0.333333  \n16  0.333333  0.333333  0.333333  \n17  0.333333  0.333333  0.333333  \n18  0.333333  0.333333  0.333333  \n19  0.333333  0.333333  0.333333  \n\n[20 rows x 220 columns]",
-            "text/html": "<div>\n<style scoped>\n    .dataframe tbody tr th:only-of-type {\n        vertical-align: middle;\n    }\n\n    .dataframe tbody tr th {\n        vertical-align: top;\n    }\n\n    .dataframe thead th {\n        text-align: right;\n    }\n</style>\n<table border=\"1\" class=\"dataframe\">\n  <thead>\n    <tr style=\"text-align: right;\">\n      <th></th>\n      <th>week</th>\n      <th>points</th>\n      <th>salary</th>\n      <th>reduction</th>\n      <th>value</th>\n      <th>ownership_%</th>\n      <th>wr</th>\n      <th>rb</th>\n      <th>qb</th>\n      <th>te</th>\n      <th>...</th>\n      <th>rashod_bateman</th>\n      <th>buccaneers</th>\n      <th>henry_ruggs</th>\n      <th>ricky_seals_jones</th>\n      <th>noah_fant</th>\n      <th>donovan_jones</th>\n      <th>steelers</th>\n      <th>1</th>\n      <th>2</th>\n      <th>3</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <th>0</th>\n      <td>1</td>\n      <td>23.433704</td>\n      <td>5551.851852</td>\n      <td>5.551852</td>\n      <td>4.205000</td>\n      <td>0.079722</td>\n      <td>0.333333</td>\n      <td>0.222222</td>\n      <td>0.111111</td>\n      <td>0.111111</td>\n      <td>...</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.333333</td>\n      <td>0.333333</td>\n      <td>0.333333</td>\n    </tr>\n    <tr>\n      <th>1</th>\n      <td>2</td>\n      <td>25.820741</td>\n      <td>5548.148148</td>\n      <td>5.548148</td>\n      <td>4.539630</td>\n      <td>0.084519</td>\n      <td>0.333333</td>\n      <td>0.222222</td>\n      <td>0.111111</td>\n      <td>0.111111</td>\n      <td>...</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.333333</td>\n      <td>0.333333</td>\n      <td>0.333333</td>\n    </tr>\n    <tr>\n      <th>2</th>\n      <td>3</td>\n      <td>24.750370</td>\n      <td>5514.814815</td>\n      <td>5.514815</td>\n      <td>4.588148</td>\n      <td>0.099741</td>\n      <td>0.333333</td>\n      <td>0.222222</td>\n      <td>0.111111</td>\n      <td>0.111111</td>\n      <td>...</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.333333</td>\n      <td>0.333333</td>\n      <td>0.333333</td>\n    </tr>\n    <tr>\n      <th>3</th>\n      <td>4</td>\n      <td>27.672593</td>\n      <td>5548.148148</td>\n      <td>5.548148</td>\n      <td>5.075556</td>\n      <td>0.095704</td>\n      <td>0.333333</td>\n      <td>0.222222</td>\n      <td>0.111111</td>\n      <td>0.111111</td>\n      <td>...</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.333333</td>\n      <td>0.333333</td>\n      <td>0.333333</td>\n    </tr>\n    <tr>\n      <th>4</th>\n      <td>5</td>\n      <td>28.552593</td>\n      <td>5529.629630</td>\n      <td>5.529630</td>\n      <td>5.163333</td>\n      <td>0.133333</td>\n      <td>0.333333</td>\n      <td>0.222222</td>\n      <td>0.111111</td>\n      <td>0.111111</td>\n      <td>...</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.333333</td>\n      <td>0.333333</td>\n      <td>0.333333</td>\n    </tr>\n    <tr>\n      <th>5</th>\n      <td>6</td>\n      <td>25.523704</td>\n      <td>5555.555556</td>\n      <td>5.555556</td>\n      <td>4.627778</td>\n      <td>0.125074</td>\n      <td>0.333333</td>\n      <td>0.222222</td>\n      <td>0.111111</td>\n      <td>0.111111</td>\n      <td>...</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.037037</td>\n      <td>0.037037</td>\n      <td>0.037037</td>\n      <td>0.037037</td>\n      <td>0.000000</td>\n      <td>0.333333</td>\n      <td>0.333333</td>\n      <td>0.333333</td>\n    </tr>\n    <tr>\n      <th>6</th>\n      <td>7</td>\n      <td>26.191111</td>\n      <td>5551.851852</td>\n      <td>5.551852</td>\n      <td>4.969259</td>\n      <td>0.105296</td>\n      <td>0.333333</td>\n      <td>0.222222</td>\n      <td>0.111111</td>\n      <td>0.111111</td>\n      <td>...</td>\n      <td>0.037037</td>\n      <td>0.037037</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.333333</td>\n      <td>0.333333</td>\n      <td>0.333333</td>\n    </tr>\n    <tr>\n      <th>7</th>\n      <td>8</td>\n      <td>24.917778</td>\n      <td>5533.333333</td>\n      <td>5.533333</td>\n      <td>4.690370</td>\n      <td>0.132593</td>\n      <td>0.333333</td>\n      <td>0.222222</td>\n      <td>0.111111</td>\n      <td>0.111111</td>\n      <td>...</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.333333</td>\n      <td>0.333333</td>\n      <td>0.333333</td>\n    </tr>\n    <tr>\n      <th>8</th>\n      <td>9</td>\n      <td>22.568148</td>\n      <td>5544.444444</td>\n      <td>5.544444</td>\n      <td>4.149259</td>\n      <td>0.128926</td>\n      <td>0.333333</td>\n      <td>0.222222</td>\n      <td>0.111111</td>\n      <td>0.111111</td>\n      <td>...</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.333333</td>\n      <td>0.333333</td>\n      <td>0.333333</td>\n    </tr>\n    <tr>\n      <th>9</th>\n      <td>10</td>\n      <td>23.158519</td>\n      <td>5548.148148</td>\n      <td>5.548148</td>\n      <td>4.432963</td>\n      <td>0.152667</td>\n      <td>0.333333</td>\n      <td>0.222222</td>\n      <td>0.111111</td>\n      <td>0.111111</td>\n      <td>...</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.333333</td>\n      <td>0.333333</td>\n      <td>0.333333</td>\n    </tr>\n    <tr>\n      <th>10</th>\n      <td>11</td>\n      <td>25.429630</td>\n      <td>5551.851852</td>\n      <td>5.551852</td>\n      <td>4.374815</td>\n      <td>0.055148</td>\n      <td>0.333333</td>\n      <td>0.222222</td>\n      <td>0.111111</td>\n      <td>0.111111</td>\n      <td>...</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.333333</td>\n      <td>0.333333</td>\n      <td>0.333333</td>\n    </tr>\n    <tr>\n      <th>11</th>\n      <td>12</td>\n      <td>24.788148</td>\n      <td>5548.148148</td>\n      <td>5.548148</td>\n      <td>4.575185</td>\n      <td>0.098778</td>\n      <td>0.333333</td>\n      <td>0.222222</td>\n      <td>0.111111</td>\n      <td>0.111111</td>\n      <td>...</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.333333</td>\n      <td>0.333333</td>\n      <td>0.333333</td>\n    </tr>\n    <tr>\n      <th>12</th>\n      <td>13</td>\n      <td>26.777037</td>\n      <td>5507.407407</td>\n      <td>5.507407</td>\n      <td>4.828889</td>\n      <td>0.148481</td>\n      <td>0.333333</td>\n      <td>0.222222</td>\n      <td>0.111111</td>\n      <td>0.111111</td>\n      <td>...</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.333333</td>\n      <td>0.333333</td>\n      <td>0.333333</td>\n    </tr>\n    <tr>\n      <th>13</th>\n      <td>14</td>\n      <td>24.442963</td>\n      <td>5548.148148</td>\n      <td>5.548148</td>\n      <td>4.506296</td>\n      <td>0.089148</td>\n      <td>0.333333</td>\n      <td>0.222222</td>\n      <td>0.111111</td>\n      <td>0.111111</td>\n      <td>...</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.333333</td>\n      <td>0.333333</td>\n      <td>0.333333</td>\n    </tr>\n    <tr>\n      <th>14</th>\n      <td>15</td>\n      <td>24.418519</td>\n      <td>5555.555556</td>\n      <td>5.555556</td>\n      <td>4.462593</td>\n      <td>0.176037</td>\n      <td>0.333333</td>\n      <td>0.222222</td>\n      <td>0.111111</td>\n      <td>0.111111</td>\n      <td>...</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.333333</td>\n      <td>0.333333</td>\n      <td>0.333333</td>\n    </tr>\n    <tr>\n      <th>15</th>\n      <td>16</td>\n      <td>29.214815</td>\n      <td>5540.740741</td>\n      <td>5.540741</td>\n      <td>5.342222</td>\n      <td>0.146667</td>\n      <td>0.333333</td>\n      <td>0.222222</td>\n      <td>0.111111</td>\n      <td>0.111111</td>\n      <td>...</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.333333</td>\n      <td>0.333333</td>\n      <td>0.333333</td>\n    </tr>\n    <tr>\n      <th>16</th>\n      <td>17</td>\n      <td>27.830370</td>\n      <td>5551.851852</td>\n      <td>5.551852</td>\n      <td>5.062963</td>\n      <td>0.109222</td>\n      <td>0.333333</td>\n      <td>0.222222</td>\n      <td>0.111111</td>\n      <td>0.111111</td>\n      <td>...</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.333333</td>\n      <td>0.333333</td>\n      <td>0.333333</td>\n    </tr>\n    <tr>\n      <th>17</th>\n      <td>18</td>\n      <td>23.748148</td>\n      <td>5544.444444</td>\n      <td>5.544444</td>\n      <td>4.734074</td>\n      <td>0.096037</td>\n      <td>0.333333</td>\n      <td>0.222222</td>\n      <td>0.111111</td>\n      <td>0.111111</td>\n      <td>...</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.333333</td>\n      <td>0.333333</td>\n      <td>0.333333</td>\n    </tr>\n    <tr>\n      <th>18</th>\n      <td>19</td>\n      <td>22.076296</td>\n      <td>5529.629630</td>\n      <td>5.529630</td>\n      <td>3.965185</td>\n      <td>0.324889</td>\n      <td>0.333333</td>\n      <td>0.222222</td>\n      <td>0.111111</td>\n      <td>0.111111</td>\n      <td>...</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.333333</td>\n      <td>0.333333</td>\n      <td>0.333333</td>\n    </tr>\n    <tr>\n      <th>19</th>\n      <td>20</td>\n      <td>22.515556</td>\n      <td>5540.740741</td>\n      <td>5.540741</td>\n      <td>4.106667</td>\n      <td>0.229667</td>\n      <td>0.333333</td>\n      <td>0.222222</td>\n      <td>0.111111</td>\n      <td>0.111111</td>\n      <td>...</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.000000</td>\n      <td>0.037037</td>\n      <td>0.333333</td>\n      <td>0.333333</td>\n      <td>0.333333</td>\n    </tr>\n  </tbody>\n</table>\n<p>20 rows × 220 columns</p>\n</div>"
+            "text/plain": "    Position               Name  Points  Salary  Reduction  Value Ownership %  \\\n0         QB    Patrick Mahomes   36.28    8100        8.1   4.48       8.20%   \n1         RB      Melvin Gordon   23.80    5300        5.3   4.49       2.00%   \n2         RB          Joe Mixon   28.00    6200        6.2   4.52      16.00%   \n3         WR        Tyreke Hill   40.10    8200        8.2   4.89      10.80%   \n4         WR        Corey Davis   26.70    4900        4.9   5.45      12.20%   \n..       ...                ...     ...     ...        ...    ...         ...   \n562       WR         Mike Evans   29.70    7000        7.0   4.24       32.5%   \n563       WR        Tyreke Hill   16.70    7300        7.3   2.29       33.3%   \n564       TE       Travis Kelce   28.88    6700        6.7   4.31       29.1%   \n565     FLEX  Demarcus Robinson   11.60    3300        3.3   3.52        1.2%   \n566      DEF           Steelers    9.00    2400        2.4   3.75        7.8%   \n\n     Place  week  \n0        1     1  \n1        1     1  \n2        1     1  \n3        1     1  \n4        1     1  \n..     ...   ...  \n562      3    20  \n563      3    20  \n564      3    20  \n565      3    20  \n566      3    20  \n\n[567 rows x 9 columns]",
+            "text/html": "<div>\n<style scoped>\n    .dataframe tbody tr th:only-of-type {\n        vertical-align: middle;\n    }\n\n    .dataframe tbody tr th {\n        vertical-align: top;\n    }\n\n    .dataframe thead th {\n        text-align: right;\n    }\n</style>\n<table border=\"1\" class=\"dataframe\">\n  <thead>\n    <tr style=\"text-align: right;\">\n      <th></th>\n      <th>Position</th>\n      <th>Name</th>\n      <th>Points</th>\n      <th>Salary</th>\n      <th>Reduction</th>\n      <th>Value</th>\n      <th>Ownership %</th>\n      <th>Place</th>\n      <th>week</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <th>0</th>\n      <td>QB</td>\n      <td>Patrick Mahomes</td>\n      <td>36.28</td>\n      <td>8100</td>\n      <td>8.1</td>\n      <td>4.48</td>\n      <td>8.20%</td>\n      <td>1</td>\n      <td>1</td>\n    </tr>\n    <tr>\n      <th>1</th>\n      <td>RB</td>\n      <td>Melvin Gordon</td>\n      <td>23.80</td>\n      <td>5300</td>\n      <td>5.3</td>\n      <td>4.49</td>\n      <td>2.00%</td>\n      <td>1</td>\n      <td>1</td>\n    </tr>\n    <tr>\n      <th>2</th>\n      <td>RB</td>\n      <td>Joe Mixon</td>\n      <td>28.00</td>\n      <td>6200</td>\n      <td>6.2</td>\n      <td>4.52</td>\n      <td>16.00%</td>\n      <td>1</td>\n      <td>1</td>\n    </tr>\n    <tr>\n      <th>3</th>\n      <td>WR</td>\n      <td>Tyreke Hill</td>\n      <td>40.10</td>\n      <td>8200</td>\n      <td>8.2</td>\n      <td>4.89</td>\n      <td>10.80%</td>\n      <td>1</td>\n      <td>1</td>\n    </tr>\n    <tr>\n      <th>4</th>\n      <td>WR</td>\n      <td>Corey Davis</td>\n      <td>26.70</td>\n      <td>4900</td>\n      <td>4.9</td>\n      <td>5.45</td>\n      <td>12.20%</td>\n      <td>1</td>\n      <td>1</td>\n    </tr>\n    <tr>\n      <th>...</th>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n      <td>...</td>\n    </tr>\n    <tr>\n      <th>562</th>\n      <td>WR</td>\n      <td>Mike Evans</td>\n      <td>29.70</td>\n      <td>7000</td>\n      <td>7.0</td>\n      <td>4.24</td>\n      <td>32.5%</td>\n      <td>3</td>\n      <td>20</td>\n    </tr>\n    <tr>\n      <th>563</th>\n      <td>WR</td>\n      <td>Tyreke Hill</td>\n      <td>16.70</td>\n      <td>7300</td>\n      <td>7.3</td>\n      <td>2.29</td>\n      <td>33.3%</td>\n      <td>3</td>\n      <td>20</td>\n    </tr>\n    <tr>\n      <th>564</th>\n      <td>TE</td>\n      <td>Travis Kelce</td>\n      <td>28.88</td>\n      <td>6700</td>\n      <td>6.7</td>\n      <td>4.31</td>\n      <td>29.1%</td>\n      <td>3</td>\n      <td>20</td>\n    </tr>\n    <tr>\n      <th>565</th>\n      <td>FLEX</td>\n      <td>Demarcus Robinson</td>\n      <td>11.60</td>\n      <td>3300</td>\n      <td>3.3</td>\n      <td>3.52</td>\n      <td>1.2%</td>\n      <td>3</td>\n      <td>20</td>\n    </tr>\n    <tr>\n      <th>566</th>\n      <td>DEF</td>\n      <td>Steelers</td>\n      <td>9.00</td>\n      <td>2400</td>\n      <td>2.4</td>\n      <td>3.75</td>\n      <td>7.8%</td>\n      <td>3</td>\n      <td>20</td>\n    </tr>\n  </tbody>\n</table>\n<p>567 rows × 9 columns</p>\n</div>"
           },
           "metadata": {}
         }
       ],
-      "execution_count": 4,
+      "execution_count": 2,
       "metadata": {
         "jupyter": {
           "source_hidden": false,
@@ -94,7 +94,7 @@
           }
         },
         "gather": {
-          "logged": 1682981079018
+          "logged": 1683228193485
         }
       }
     },
@@ -102,228 +102,59 @@
       "cell_type": "code",
       "source": [
         "import pulp\n",
-        "import random\n",
+        "import pandas as pd\n",
         "\n",
-        "# Generate fake player data\n",
-        "players = {\n",
-        "    f\"Player{i}\": {\n",
-        "        \"position\": random.choice([\"QB\", \"RB\", \"WR\", \"TE\", \"DST\"]),\n",
-        "        \"salary\": random.randint(3000, 9000),\n",
-        "        \"points\": random.uniform(0, 40),\n",
-        "    }\n",
-        "    for i in range(1, 101)\n",
-        "}"
-      ],
-      "outputs": [],
-      "execution_count": 3,
-      "metadata": {
-        "jupyter": {
-          "source_hidden": false,
-          "outputs_hidden": false
-        },
-        "nteract": {
-          "transient": {
-            "deleting": false
-          }
-        },
-        "gather": {
-          "logged": 1682536718561
-        }
-      }
-    },
-    {
-      "cell_type": "code",
-      "source": [
-        "pd.DataFrame(players)"
-      ],
-      "outputs": [
-        {
-          "output_type": "execute_result",
-          "execution_count": 5,
-          "data": {
-            "text/plain": "            Player1   Player2   Player3    Player4   Player5    Player6  \\\nposition         WR        QB        QB         TE        RB         QB   \nsalary         8541      6369      4088       6762      4715       6242   \npoints    15.104506  4.253877  7.250161  18.548211  31.94972  11.406805   \n\n           Player7    Player8    Player9  Player10  ...  Player91   Player92  \\\nposition        QB         QB         QB       DST  ...        WR         QB   \nsalary        8655       6800       8184      6296  ...      4214       6517   \npoints    0.365365  28.142896  20.546849  33.03067  ...  9.918665  28.360955   \n\n          Player93   Player94  Player95  Player96   Player97   Player98  \\\nposition        RB         QB        QB        WR         RB         RB   \nsalary        8383       4259      3619      3109       3030       7193   \npoints    8.603833  33.692006  3.704472  2.609307  25.610785  13.748802   \n\n           Player99 Player100  \nposition         TE        TE  \nsalary         4915      5010  \npoints    35.838109  9.535819  \n\n[3 rows x 100 columns]",
-            "text/html": "<div>\n<style scoped>\n    .dataframe tbody tr th:only-of-type {\n        vertical-align: middle;\n    }\n\n    .dataframe tbody tr th {\n        vertical-align: top;\n    }\n\n    .dataframe thead th {\n        text-align: right;\n    }\n</style>\n<table border=\"1\" class=\"dataframe\">\n  <thead>\n    <tr style=\"text-align: right;\">\n      <th></th>\n      <th>Player1</th>\n      <th>Player2</th>\n      <th>Player3</th>\n      <th>Player4</th>\n      <th>Player5</th>\n      <th>Player6</th>\n      <th>Player7</th>\n      <th>Player8</th>\n      <th>Player9</th>\n      <th>Player10</th>\n      <th>...</th>\n      <th>Player91</th>\n      <th>Player92</th>\n      <th>Player93</th>\n      <th>Player94</th>\n      <th>Player95</th>\n      <th>Player96</th>\n      <th>Player97</th>\n      <th>Player98</th>\n      <th>Player99</th>\n      <th>Player100</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <th>position</th>\n      <td>WR</td>\n      <td>QB</td>\n      <td>QB</td>\n      <td>TE</td>\n      <td>RB</td>\n      <td>QB</td>\n      <td>QB</td>\n      <td>QB</td>\n      <td>QB</td>\n      <td>DST</td>\n      <td>...</td>\n      <td>WR</td>\n      <td>QB</td>\n      <td>RB</td>\n      <td>QB</td>\n      <td>QB</td>\n      <td>WR</td>\n      <td>RB</td>\n      <td>RB</td>\n      <td>TE</td>\n      <td>TE</td>\n    </tr>\n    <tr>\n      <th>salary</th>\n      <td>8541</td>\n      <td>6369</td>\n      <td>4088</td>\n      <td>6762</td>\n      <td>4715</td>\n      <td>6242</td>\n      <td>8655</td>\n      <td>6800</td>\n      <td>8184</td>\n      <td>6296</td>\n      <td>...</td>\n      <td>4214</td>\n      <td>6517</td>\n      <td>8383</td>\n      <td>4259</td>\n      <td>3619</td>\n      <td>3109</td>\n      <td>3030</td>\n      <td>7193</td>\n      <td>4915</td>\n      <td>5010</td>\n    </tr>\n    <tr>\n      <th>points</th>\n      <td>15.104506</td>\n      <td>4.253877</td>\n      <td>7.250161</td>\n      <td>18.548211</td>\n      <td>31.94972</td>\n      <td>11.406805</td>\n      <td>0.365365</td>\n      <td>28.142896</td>\n      <td>20.546849</td>\n      <td>33.03067</td>\n      <td>...</td>\n      <td>9.918665</td>\n      <td>28.360955</td>\n      <td>8.603833</td>\n      <td>33.692006</td>\n      <td>3.704472</td>\n      <td>2.609307</td>\n      <td>25.610785</td>\n      <td>13.748802</td>\n      <td>35.838109</td>\n      <td>9.535819</td>\n    </tr>\n  </tbody>\n</table>\n<p>3 rows × 100 columns</p>\n</div>"
-          },
-          "metadata": {}
-        }
-      ],
-      "execution_count": 5,
-      "metadata": {
-        "jupyter": {
-          "source_hidden": false,
-          "outputs_hidden": false
-        },
-        "nteract": {
-          "transient": {
-            "deleting": false
-          }
-        },
-        "gather": {
-          "logged": 1682536734748
-        }
-      }
-    },
-    {
-      "cell_type": "code",
-      "source": [
-        "# Define problem\n",
-        "problem = pulp.LpProblem(\"NFL_Milly_Maker\", pulp.LpMaximize)\n",
+        "def optimize_draft_kings_lineup(df, num_players):\n",
+        "    # Create the problem variable\n",
+        "    prob = pulp.LpProblem(\"DraftKings_Milly_Makers\", pulp.LpMaximize)\n",
         "\n",
-        "# Define variables\n",
-        "player_vars = pulp.LpVariable.dicts(\n",
-        "    \"player\", players.keys(), lowBound=0, upBound=1, cat=\"Integer\"\n",
-        ")"
-      ],
-      "outputs": [],
-      "execution_count": 6,
-      "metadata": {
-        "jupyter": {
-          "source_hidden": false,
-          "outputs_hidden": false
-        },
-        "nteract": {
-          "transient": {
-            "deleting": false
-          }
-        },
-        "gather": {
-          "logged": 1682536766877
-        }
-      }
-    },
-    {
-      "cell_type": "code",
-      "source": [
-        "# Define constraints\n",
-        "position_limits = {\"QB\": 1, \"RB\": 2, \"WR\": 3, \"TE\": 1, \"DST\": 1}"
-      ],
-      "outputs": [],
-      "execution_count": 10,
-      "metadata": {
-        "jupyter": {
-          "source_hidden": false,
-          "outputs_hidden": false
-        },
-        "nteract": {
-          "transient": {
-            "deleting": false
-          }
-        },
-        "gather": {
-          "logged": 1682542136965
-        }
-      }
-    },
-    {
-      "cell_type": "code",
-      "source": [
-        "for position, limit in position_limits.items():\n",
-        "    problem += (\n",
-        "        pulp.lpSum(\n",
-        "            player_vars[p] for p in players if players[p][\"position\"] == position\n",
-        "        )\n",
-        "        == limit\n",
-        "    )"
-      ],
-      "outputs": [],
-      "execution_count": 11,
-      "metadata": {
-        "jupyter": {
-          "source_hidden": false,
-          "outputs_hidden": false
-        },
-        "nteract": {
-          "transient": {
-            "deleting": false
-          }
-        },
-        "gather": {
-          "logged": 1682542148820
-        }
-      }
-    },
-    {
-      "cell_type": "code",
-      "source": [
-        "problem += pulp.lpSum(player_vars[p] * players[p][\"salary\"] for p in players) <= 50000"
-      ],
-      "outputs": [],
-      "execution_count": 14,
-      "metadata": {
-        "jupyter": {
-          "source_hidden": false,
-          "outputs_hidden": false
-        },
-        "nteract": {
-          "transient": {
-            "deleting": false
-          }
-        },
-        "gather": {
-          "logged": 1682542200024
-        }
-      }
-    },
-    {
-      "cell_type": "code",
-      "source": [
-        "problem += pulp.lpSum(player_vars) == 9"
-      ],
-      "outputs": [],
-      "execution_count": 16,
-      "metadata": {
-        "jupyter": {
-          "source_hidden": false,
-          "outputs_hidden": false
-        },
-        "nteract": {
-          "transient": {
-            "deleting": false
-          }
-        },
-        "gather": {
-          "logged": 1682542257047
-        }
-      }
-    },
-    {
-      "cell_type": "code",
-      "source": [
-        "problem += pulp.lpSum(player_vars[p] * players[p][\"points\"] for p in players)"
-      ],
-      "outputs": [],
-      "execution_count": 18,
-      "metadata": {
-        "jupyter": {
-          "source_hidden": false,
-          "outputs_hidden": false
-        },
-        "nteract": {
-          "transient": {
-            "deleting": false
-          }
-        },
-        "gather": {
-          "logged": 1682542281745
-        }
-      }
-    },
-    {
-      "cell_type": "code",
-      "source": [
-        "# Define objective function\n",
+        "    # Create decision variables\n",
+        "    player_vars = pulp.LpVariable.dicts(\"Player\", (player for player in df[\"name\"]), 0, 1, pulp.LpInteger)\n",
         "\n",
-        "# Solve problem\n",
-        "status = problem.solve()"
+        "    # Objective function: maximize total value\n",
+        "    prob += pulp.lpSum([df.loc[df[\"name\"] == player, \"value\"].values[0] * player_vars[player] for player in df[\"name\"]]), \"Total_Value\"\n",
+        "\n",
+        "    # Constraints\n",
+        "    prob += pulp.lpSum([df.loc[df[\"name\"] == player, \"cost\"].values[0] * player_vars[player] for player in df[\"name\"]]) <= 50000, \"Total_Cost\"\n",
+        "    \n",
+        "    for position, count in num_players.items():\n",
+        "        prob += pulp.lpSum([player_vars[player] for player in df[df[\"position\"] == position][\"name\"]]) == count, f\"{count}_{position}s\"\n",
+        "\n",
+        "    # Solve the problem\n",
+        "    prob.solve()\n",
+        "\n",
+        "    # Store the results\n",
+        "    optimal_lineup = [v.name.split(\"_\")[1] for v in prob.variables() if v.varValue > 0]\n",
+        "\n",
+        "    # Return the optimal lineup as a DataFrame\n",
+        "    return df[df[\"name\"].isin(optimal_lineup)]\n",
+        "\n",
+        "# Sample data as a DataFrame\n",
+        "data = {\n",
+        "    \"name\": [\"Player1\", \"Player2\", \"Player3\", \"Player4\", \"Player5\", \"Player6\", \"Player7\", \"Player8\"],\n",
+        "    \"position\": [\"QB\", \"QB\", \"RB\", \"RB\", \"WR\", \"WR\", \"TE\", \"TE\"],\n",
+        "    \"cost\": [6000, 6100, 5000, 5200, 4500, 4800, 4300, 4600],\n",
+        "    \"value\": [20, 22, 15, 18, 12, 14, 10, 13]\n",
+        "}\n",
+        "\n",
+        "df = pd.DataFrame(data)\n",
+        "\n",
+        "# Set the number of players for each position\n",
+        "num_players = {\"QB\": 1, \"RB\": 2, \"WR\": 3, \"TE\": 1}\n",
+        "\n",
+        "# Run the optimization and print results\n",
+        "optimal_lineup_df = optimize_draft_kings_lineup(df, num_players)\n",
+        "print(\"Optimal Lineup:\")\n",
+        "print(optimal_lineup_df)\n"
       ],
       "outputs": [
         {
           "output_type": "stream",
           "name": "stdout",
-          "text": "Welcome to the CBC MILP Solver \nVersion: 2.10.3 \nBuild Date: Dec 15 2019 \n\ncommand line - /anaconda/envs/azureml_py38/lib/python3.8/site-packages/pulp/solverdir/cbc/linux/64/cbc /tmp/ec9bb86d7321461599e606ee9c7cc078-pulp.mps max timeMode elapsed branch printingOptions all solution /tmp/ec9bb86d7321461599e606ee9c7cc078-pulp.sol (default strategy 1)\nAt line 2 NAME          MODEL\nAt line 3 ROWS\nAt line 12 COLUMNS\nAt line 613 RHS\nAt line 621 BOUNDS\nAt line 722 ENDATA\nProblem MODEL has 7 rows, 100 columns and 300 elements\nCoin0008I MODEL read with 0 errors\nOption for timeMode changed from cpu to elapsed\nProblem is infeasible - 0.00 seconds\nOption for printingOptions changed from normal to all\nTotal time (CPU seconds):       0.00   (Wallclock seconds):       0.00\n\n"
+          "text": "Welcome to the CBC MILP Solver \nVersion: 2.10.3 \nBuild Date: Dec 15 2019 \n\ncommand line - /anaconda/envs/azureml_py38/lib/python3.8/site-packages/pulp/solverdir/cbc/linux/64/cbc /tmp/9ef7f890116f4a1fbd3154ca7cc97884-pulp.mps max timeMode elapsed branch printingOptions all solution /tmp/9ef7f890116f4a1fbd3154ca7cc97884-pulp.sol (default strategy 1)\nAt line 2 NAME          MODEL\nAt line 3 ROWS\nAt line 10 COLUMNS\nAt line 51 RHS\nAt line 57 BOUNDS\nAt line 66 ENDATA\nProblem MODEL has 5 rows, 8 columns and 16 elements\nCoin0008I MODEL read with 0 errors\nOption for timeMode changed from cpu to elapsed\nProblem is infeasible - 0.00 seconds\nOption for printingOptions changed from normal to all\nTotal time (CPU seconds):       0.00   (Wallclock seconds):       0.00\n\nOptimal Lineup:\n      name position  cost  value\n1  Player2       QB  6100     22\n2  Player3       RB  5000     15\n3  Player4       RB  5200     18\n4  Player5       WR  4500     12\n5  Player6       WR  4800     14\n7  Player8       TE  4600     13\n"
         }
       ],
-      "execution_count": 19,
+      "execution_count": 27,
       "metadata": {
         "jupyter": {
           "source_hidden": false,
@@ -335,41 +166,7 @@
           }
         },
         "gather": {
-          "logged": 1682542288699
-        }
-      }
-    },
-    {
-      "cell_type": "code",
-      "source": [
-        "# Display results\n",
-        "print(f\"Status: {pulp.LpStatus[status]}\")\n",
-        "print(f\"Objective: {pulp.value(problem.objective)}\")\n",
-        "print(\"Players in optimal lineup:\")\n",
-        "for player in players:\n",
-        "    if pulp.value(player_vars[player]) == 1:\n",
-        "        print(f\"{player}: {players[player]}\")"
-      ],
-      "outputs": [
-        {
-          "output_type": "stream",
-          "name": "stdout",
-          "text": "Status: Infeasible\nObjective: 318.4251563386727\nPlayers in optimal lineup:\nPlayer10: {'position': 'DST', 'salary': 6296, 'points': 33.030670457210164}\nPlayer27: {'position': 'QB', 'salary': 5696, 'points': 39.042281605536175}\nPlayer31: {'position': 'TE', 'salary': 4582, 'points': 39.815364215996674}\nPlayer48: {'position': 'RB', 'salary': 3747, 'points': 37.187410420496136}\nPlayer58: {'position': 'WR', 'salary': 3831, 'points': 29.523712763596784}\nPlayer66: {'position': 'WR', 'salary': 7984, 'points': 32.64545668496963}\nPlayer76: {'position': 'QB', 'salary': 6027, 'points': 35.53298280978587}\nPlayer77: {'position': 'DST', 'salary': 7136, 'points': 37.82626582276134}\nPlayer80: {'position': 'WR', 'salary': 8249, 'points': 32.75787248270365}\nPlayer83: {'position': 'RB', 'salary': 5945, 'points': 39.38509442794828}\n"
-        }
-      ],
-      "execution_count": 20,
-      "metadata": {
-        "jupyter": {
-          "source_hidden": false,
-          "outputs_hidden": false
-        },
-        "nteract": {
-          "transient": {
-            "deleting": false
-          }
-        },
-        "gather": {
-          "logged": 1682542308980
+          "logged": 1683230308906
         }
       }
     }
