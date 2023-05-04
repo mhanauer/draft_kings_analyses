@@ -151,10 +151,10 @@
         {
           "output_type": "stream",
           "name": "stdout",
-          "text": "Welcome to the CBC MILP Solver \nVersion: 2.10.3 \nBuild Date: Dec 15 2019 \n\ncommand line - /anaconda/envs/azureml_py38/lib/python3.8/site-packages/pulp/solverdir/cbc/linux/64/cbc /tmp/9ef7f890116f4a1fbd3154ca7cc97884-pulp.mps max timeMode elapsed branch printingOptions all solution /tmp/9ef7f890116f4a1fbd3154ca7cc97884-pulp.sol (default strategy 1)\nAt line 2 NAME          MODEL\nAt line 3 ROWS\nAt line 10 COLUMNS\nAt line 51 RHS\nAt line 57 BOUNDS\nAt line 66 ENDATA\nProblem MODEL has 5 rows, 8 columns and 16 elements\nCoin0008I MODEL read with 0 errors\nOption for timeMode changed from cpu to elapsed\nProblem is infeasible - 0.00 seconds\nOption for printingOptions changed from normal to all\nTotal time (CPU seconds):       0.00   (Wallclock seconds):       0.00\n\nOptimal Lineup:\n      name position  cost  value\n1  Player2       QB  6100     22\n2  Player3       RB  5000     15\n3  Player4       RB  5200     18\n4  Player5       WR  4500     12\n5  Player6       WR  4800     14\n7  Player8       TE  4600     13\n"
+          "text": "Welcome to the CBC MILP Solver \nVersion: 2.10.3 \nBuild Date: Dec 15 2019 \n\ncommand line - /anaconda/envs/azureml_py38/lib/python3.8/site-packages/pulp/solverdir/cbc/linux/64/cbc /tmp/5f8a0e3beade44b994cfca4310863bc8-pulp.mps max timeMode elapsed branch printingOptions all solution /tmp/5f8a0e3beade44b994cfca4310863bc8-pulp.sol (default strategy 1)\nAt line 2 NAME          MODEL\nAt line 3 ROWS\nAt line 10 COLUMNS\nAt line 51 RHS\nAt line 57 BOUNDS\nAt line 66 ENDATA\nProblem MODEL has 5 rows, 8 columns and 16 elements\nCoin0008I MODEL read with 0 errors\nOption for timeMode changed from cpu to elapsed\nProblem is infeasible - 0.00 seconds\nOption for printingOptions changed from normal to all\nTotal time (CPU seconds):       0.00   (Wallclock seconds):       0.00\n\nOptimal Lineup:\n      name position  cost  value\n1  Player2       QB  6100     22\n2  Player3       RB  5000     15\n3  Player4       RB  5200     18\n4  Player5       WR  4500     12\n5  Player6       WR  4800     14\n7  Player8       TE  4600     13\n"
         }
       ],
-      "execution_count": 27,
+      "execution_count": 28,
       "metadata": {
         "jupyter": {
           "source_hidden": false,
@@ -166,7 +166,29 @@
           }
         },
         "gather": {
-          "logged": 1683230308906
+          "logged": 1683232661999
+        }
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "df.to_csv(\"data_draft_kings_optimize_test.csv\")"
+      ],
+      "outputs": [],
+      "execution_count": 29,
+      "metadata": {
+        "jupyter": {
+          "source_hidden": false,
+          "outputs_hidden": false
+        },
+        "nteract": {
+          "transient": {
+            "deleting": false
+          }
+        },
+        "gather": {
+          "logged": 1683232694075
         }
       }
     }
