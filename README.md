@@ -6,6 +6,8 @@ This is a Streamlit web application that helps users optimize their DraftKings M
 ## Features
 
 Upload a CSV file containing player data with columns "name", "position", "cost", and "value".
+
 Set the number of players for each position (Quarterbacks, Running Backs, Wide Receivers, and Tight Ends).
 Optimize the lineup based on the provided constraints.
+
 Display the optimal lineup and download it as a CSV file.
