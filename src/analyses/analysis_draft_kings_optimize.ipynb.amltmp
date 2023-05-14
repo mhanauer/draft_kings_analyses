@@ -47,6 +47,7 @@
         "path_data = here(\"./data\")\n",
         "os.chdir(path_data)\n",
         "\n",
+        "\n",
         "data_draft_kings = pd.read_csv(\"draft_kings_2021_2022.csv\")"
       ],
       "outputs": [],
