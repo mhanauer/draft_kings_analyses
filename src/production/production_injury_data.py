@@ -5,27 +5,29 @@ from pyprojroot import here
 from skimpy import clean_columns
 import os
 from azureml.core import Workspace, Dataset
+import argparse
 
+print("Script started: production_injury_data.py")
 
-path_data = here("./data")
-os.chdir(path_data)
 from azureml.core import Datastore
-
+path_data = here("./")
+os.chdir(path_data)
 
 workspace = Workspace.from_config()
 
-
 datastore = workspace.get_default_datastore()
-
 
 from bs4 import BeautifulSoup
 import datetime
 
 url = "https://www.espn.com/nfl/injuries"
 response = requests.get(url)
+print("Fetching URL")
 soup = BeautifulSoup(response.text, "html.parser")
+print("URL fetched and parsed")
 
 # Find all tables containing injury data
+print("Finding injury tables")
 injury_tables = soup.find_all("table", class_="Table")
 
 # Define the columns for the DataFrame
@@ -55,17 +57,18 @@ for injury_table in injury_tables:
         # Append the data as a tuple to the injury_data list
         injury_data.append((name, pos, date, status))
 
+print("Injury data extracted")
+
 # Create the DataFrame
 injury_df = pd.DataFrame(injury_data, columns=columns)
 
-print(injury_df)
-
+print("Cleaning columns")
 data_nfl_injury = clean_columns(injury_df)
 
+print("Converting date column to datetime")
 data_nfl_injury["date"] = pd.to_datetime(data_nfl_injury["date"])
 
-data_nfl_injury.to_parquet("data_nfl_injury_test.parquet")
-
+print("Registering pandas dataframe")
 ds = Dataset.Tabular.register_pandas_dataframe(
     dataframe=data_nfl_injury,
     name="data_nfl_injury_test",
@@ -73,7 +76,4 @@ ds = Dataset.Tabular.register_pandas_dataframe(
     target=datastore,
 )
 
-
-
-
-
+print("Script finished: production_injury_data.py")
