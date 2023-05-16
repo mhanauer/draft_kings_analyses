@@ -6,7 +6,7 @@
         "%load_ext lab_black"
       ],
       "outputs": [],
-      "execution_count": null,
+      "execution_count": 1,
       "metadata": {}
     },
     {
@@ -53,7 +53,7 @@
         "datastore = workspace.get_default_datastore()"
       ],
       "outputs": [],
-      "execution_count": null,
+      "execution_count": 2,
       "metadata": {
         "jupyter": {
           "source_hidden": false,
@@ -65,7 +65,7 @@
           }
         },
         "gather": {
-          "logged": 1684090624691
+          "logged": 1684261113195
         }
       }
     },
@@ -75,7 +75,7 @@
         "environment = Environment.from_conda_specification(\"nfl_env\", \"nfl_env.yaml\")"
       ],
       "outputs": [],
-      "execution_count": null,
+      "execution_count": 3,
       "metadata": {
         "jupyter": {
           "source_hidden": false,
@@ -87,7 +87,7 @@
           }
         },
         "gather": {
-          "logged": 1684090627245
+          "logged": 1684261113299
         }
       }
     },
@@ -109,7 +109,7 @@
         "    compute_target.wait_for_completion(show_output=True)"
       ],
       "outputs": [],
-      "execution_count": null,
+      "execution_count": 4,
       "metadata": {
         "jupyter": {
           "source_hidden": false,
@@ -121,7 +121,7 @@
           }
         },
         "gather": {
-          "logged": 1684090629423
+          "logged": 1684261116372
         }
       }
     },
@@ -130,37 +130,15 @@
       "source": [
         "import os\n",
         "\n",
-        "script_path = os.path.abspath(\"production_injury_data.py\")\n",
+        "script_directory = os.path.dirname(os.path.abspath(\"production_injury_data.py\"))\n",
+        "script_file = \"production_injury_data.py\"\n",
         "\n",
-        "src = ScriptRunConfig(source_directory=\".\", script=script_path, environment=environment)"
-      ],
-      "outputs": [],
-      "execution_count": null,
-      "metadata": {
-        "jupyter": {
-          "source_hidden": false,
-          "outputs_hidden": false
-        },
-        "nteract": {
-          "transient": {
-            "deleting": false
-          }
-        },
-        "gather": {
-          "logged": 1684090823075
-        }
-      }
-    },
-    {
-      "cell_type": "code",
-      "source": [
-        "# Create a ScriptRunConfig for your script\n",
         "src = ScriptRunConfig(\n",
-        "    source_directory=\".\", script=\"production_injury_data.py\", environment=environment\n",
+        "    source_directory=script_directory, script=script_file, environment=environment\n",
         ")"
       ],
       "outputs": [],
-      "execution_count": 69,
+      "execution_count": 32,
       "metadata": {
         "jupyter": {
           "source_hidden": false,
@@ -172,23 +150,23 @@
           }
         },
         "gather": {
-          "logged": 1684092531622
+          "logged": 1684262990747
         }
       }
     },
     {
       "cell_type": "code",
       "source": [
-        "# Create a PythonScriptStep\n",
         "step = PythonScriptStep(\n",
         "    name=\"scrapper_nfl_injury\",\n",
-        "    script_name=\"production_injury_data.py\",\n",
+        "    script_name=script_file,\n",
         "    compute_target=compute_target,\n",
         "    runconfig=src.run_config,\n",
+        "    allow_reuse=False,\n",
         ")"
       ],
       "outputs": [],
-      "execution_count": 70,
+      "execution_count": 33,
       "metadata": {
         "jupyter": {
           "source_hidden": false,
@@ -200,7 +178,7 @@
           }
         },
         "gather": {
-          "logged": 1684092533423
+          "logged": 1684262992264
         }
       }
     },
@@ -211,7 +189,7 @@
         "pipeline = Pipeline(workspace=workspace, steps=[step])"
       ],
       "outputs": [],
-      "execution_count": 71,
+      "execution_count": 34,
       "metadata": {
         "jupyter": {
           "source_hidden": false,
@@ -223,7 +201,7 @@
           }
         },
         "gather": {
-          "logged": 1684092535894
+          "logged": 1684262994181
         }
       }
     },
@@ -237,10 +215,10 @@
         {
           "output_type": "stream",
           "name": "stdout",
-          "text": "Created step scrapper_nfl_injury [e5ed55fc][00b2cd3a-7d2a-4d1c-ab4e-b62ba442fe3e], (This step will run and generate new outputs)\n"
+          "text": "Created step scrapper_nfl_injury [3e779916][db11ea06-533f-46f2-9b7e-6e7785daea4e], (This step will run and generate new outputs)\n"
         }
       ],
-      "execution_count": 72,
+      "execution_count": 35,
       "metadata": {
         "jupyter": {
           "source_hidden": false,
@@ -252,56 +230,37 @@
           }
         },
         "gather": {
-          "logged": 1684092541298
+          "logged": 1684262998873
         }
       }
     },
     {
       "cell_type": "code",
       "source": [
-        "from datetime import time\n",
-        "\n",
-        "recurrence = ScheduleRecurrence(frequency=\"Day\", interval=1, time_of_day=\"15:31\")\n",
-        "schedule = Schedule.create(\n",
-        "    workspace,\n",
-        "    name=\"scrapper_nfl_injury_schedule\",\n",
-        "    pipeline_id=published_pipeline.id,\n",
-        "    experiment_name=\"scrapper_nfl_injury_experiment\",\n",
-        "    recurrence=recurrence,\n",
-        ")"
-      ],
-      "outputs": [],
-      "execution_count": 73,
-      "metadata": {
-        "jupyter": {
-          "source_hidden": false,
-          "outputs_hidden": false
-        },
-        "nteract": {
-          "transient": {
-            "deleting": false
-          }
-        },
-        "gather": {
-          "logged": 1684092553588
-        }
-      }
-    },
-    {
-      "cell_type": "code",
-      "source": [
-        "schedules = Schedule.list(workspace)\n",
-        "for s in schedules:\n",
-        "    print(f\"Schedule name: {s.name}, Status: {s.status}, Pipeline ID: {s.pipeline_id}\")"
+        "pipeline_run = Experiment(workspace, \"scrapper_nfl_injury_experiment\").submit(pipeline)\n",
+        "pipeline_run.wait_for_completion(show_output=True)"
       ],
       "outputs": [
         {
           "output_type": "stream",
           "name": "stdout",
-          "text": "Schedule name: scrapper_nfl_injury_schedule, Status: Active, Pipeline ID: 251973e9-230c-45f9-b49f-a1761de800e7\nSchedule name: scrapper_nfl_injury_schedule, Status: Active, Pipeline ID: cccbad01-989d-43d2-861c-b77071147192\nSchedule name: scrapper_nfl_injury_schedule, Status: Active, Pipeline ID: d7e805cc-941e-4477-bff1-c6a4ad480fa6\nSchedule name: scrapper_nfl_injury_schedule, Status: Active, Pipeline ID: bfc408c3-fa3b-4702-9365-89291d9c0a76\nSchedule name: scrapper_nfl_injury_schedule, Status: Active, Pipeline ID: fadf4d78-69b0-49cf-8934-5a0e1a6e0202\nSchedule name: scrapper_nfl_injury_schedule, Status: Active, Pipeline ID: fadf4d78-69b0-49cf-8934-5a0e1a6e0202\nSchedule name: scrapper_nfl_injury_schedule, Status: Active, Pipeline ID: fadf4d78-69b0-49cf-8934-5a0e1a6e0202\nSchedule name: scrapper_nfl_injury_schedule, Status: Active, Pipeline ID: fadf4d78-69b0-49cf-8934-5a0e1a6e0202\nSchedule name: scrapper_nfl_injury_schedule, Status: Active, Pipeline ID: b38cc710-8776-4f27-b176-97fa6205fb18\nSchedule name: scrapper_nfl_injury_schedule, Status: Active, Pipeline ID: 32c3e87e-bd6b-4710-97a9-7f5a0587e731\nSchedule name: scrapper_nfl_injury_schedule, Status: Active, Pipeline ID: 32c3e87e-bd6b-4710-97a9-7f5a0587e731\nSchedule name: scrapper_nfl_injury_schedule, Status: Active, Pipeline ID: 32c3e87e-bd6b-4710-97a9-7f5a0587e731\nSchedule name: scrapper_nfl_injury_schedule, Status: Active, Pipeline ID: 5361016a-abdc-459c-9cfe-ca049b3748fe\nSchedule name: scrapper_nfl_injury_schedule, Status: Active, Pipeline ID: eadf2b8e-2da6-48f8-9e48-a626083db031\nSchedule name: scrapper_nfl_injury_schedule, Status: Active, Pipeline ID: 3928ceb6-89bb-4de8-96b6-72624575517c\nSchedule name: scrapper_nfl_injury_schedule, Status: Active, Pipeline ID: eec16a2b-89a0-4446-a7bd-57d717dcc03a\nSchedule name: scrapper_nfl_injury_schedule, Status: Active, Pipeline ID: 5bab17d0-42f9-4247-84a3-72ef8dee96da\nSchedule name: scrapper_nfl_injury_schedule, Status: Active, Pipeline ID: 1adf4684-6e69-4ed7-a8aa-1c71da9ddb63\nSchedule name: scrapper_nfl_injury_schedule, Status: Active, Pipeline ID: 6fb7a4a5-29db-4101-b4e4-509ffb7f54f8\nSchedule name: scrapper_nfl_injury_schedule, Status: Active, Pipeline ID: 6fb7a4a5-29db-4101-b4e4-509ffb7f54f8\nSchedule name: scrapper_nfl_injury_schedule, Status: Active, Pipeline ID: 7c5a6899-6562-419e-8fcb-958d0f4a20a4\nSchedule name: scrapper_nfl_injury_schedule, Status: Active, Pipeline ID: 7c5a6899-6562-419e-8fcb-958d0f4a20a4\nSchedule name: scrapper_nfl_injury_schedule, Status: Active, Pipeline ID: 6f96f94d-bedd-445b-b089-a9d75559fb96\nSchedule name: scrapper_nfl_injury_schedule, Status: Active, Pipeline ID: 6f96f94d-bedd-445b-b089-a9d75559fb96\nSchedule name: scrapper_nfl_injury_schedule, Status: Active, Pipeline ID: 6f96f94d-bedd-445b-b089-a9d75559fb96\nSchedule name: scrapper_nfl_injury_schedule, Status: Active, Pipeline ID: 6f96f94d-bedd-445b-b089-a9d75559fb96\nSchedule name: scrapper_nfl_injury_schedule, Status: Active, Pipeline ID: 3bd2f35b-b44f-41dc-8559-586cfa57a859\nSchedule name: scrapper_nfl_injury_schedule, Status: Active, Pipeline ID: daa1a6ab-b265-45d7-abf7-218fcbb0ee97\nSchedule name: scrapper_nfl_injury_schedule, Status: Active, Pipeline ID: 5f270890-5d23-4a5e-a5d0-23d4a51cbe3e\nSchedule name: nfl_injury_scraper_schedule, Status: Active, Pipeline ID: 8bdafb18-9013-4bec-a0db-240375e6de17\nSchedule name: nfl_injury_scraper_schedule, Status: Active, Pipeline ID: 2029602c-170a-410e-8006-12eed0b873f8\nSchedule name: nfl_injury_scraper_schedule, Status: Active, Pipeline ID: 21be55e3-caf2-4aca-ab14-d6fb3629338e\nSchedule name: nfl_scraper_schedule, Status: Active, Pipeline ID: 5b60d2f0-6b64-483f-87a5-7cc25e3b696f\nSchedule name: nfl_scraper_schedule, Status: Active, Pipeline ID: fd0141c5-9ee9-4053-98a1-a995f22f4d12\nSchedule name: nfl_scraper_schedule, Status: Active, Pipeline ID: 6ea7c2b2-6560-4dc5-948c-9062ff5a7289\nSchedule name: nfl_injury_scraper_schedule, Status: Active, Pipeline ID: 1a7c02b7-e382-4d84-9851-0463e97cee41\n"
+          "text": "Submitted PipelineRun 9d9c76ac-480b-498e-b39f-e03b6a4b1067\nLink to Azure Machine Learning Portal: https://ml.azure.com/runs/9d9c76ac-480b-498e-b39f-e03b6a4b1067?wsid=/subscriptions/d3ade6e0-a7be-4323-ace4-02b7b4da2451/resourcegroups/ml_modeling/workspaces/mhanauer&tid=a93eafc8-c064-4a88-bc01-47e93068b42b\nPipelineRunId: 9d9c76ac-480b-498e-b39f-e03b6a4b1067\nLink to Azure Machine Learning Portal: https://ml.azure.com/runs/9d9c76ac-480b-498e-b39f-e03b6a4b1067?wsid=/subscriptions/d3ade6e0-a7be-4323-ace4-02b7b4da2451/resourcegroups/ml_modeling/workspaces/mhanauer&tid=a93eafc8-c064-4a88-bc01-47e93068b42b\nPipelineRun Status: NotStarted\nPipelineRun Status: Running\n\n\n\n\nPipelineRun Execution Summary\n==============================\nPipelineRun Status: Finished\n{'runId': '9d9c76ac-480b-498e-b39f-e03b6a4b1067', 'status': 'Completed', 'startTimeUtc': '2023-05-16T18:51:28.144195Z', 'endTimeUtc': '2023-05-16T18:52:05.3681Z', 'services': {}, 'properties': {'azureml.runsource': 'azureml.PipelineRun', 'runSource': 'SDK', 'runType': 'SDK', 'azureml.parameters': '{}', 'azureml.continue_on_step_failure': 'False', 'azureml.continue_on_failed_optional_input': 'True', 'azureml.pipelineComponent': 'pipelinerun', 'azureml.pipelines.stages': '{\"Initialization\":null,\"Execution\":{\"StartTime\":\"2023-05-16T18:51:28.3670725+00:00\",\"EndTime\":\"2023-05-16T18:52:05.2347267+00:00\",\"Status\":\"Finished\"}}'}, 'inputDatasets': [], 'outputDatasets': [], 'logFiles': {'logs/azureml/executionlogs.txt': 'https://mhanauer8647219579.blob.core.windows.net/azureml/ExperimentRun/dcid.9d9c76ac-480b-498e-b39f-e03b6a4b1067/logs/azureml/executionlogs.txt?sv=2019-07-07&sr=b&sig=miFyJbvEO5kI4hD%2F6Jt8fnF053yDDQRObLLOq0Ous%2BA%3D&skoid=4820326e-b09e-4555-860b-ae72befc740d&sktid=a93eafc8-c064-4a88-bc01-47e93068b42b&skt=2023-05-16T11%3A19%3A25Z&ske=2023-05-17T19%3A29%3A25Z&sks=b&skv=2019-07-07&st=2023-05-16T18%3A42%3A06Z&se=2023-05-17T02%3A52%3A06Z&sp=r', 'logs/azureml/stderrlogs.txt': 'https://mhanauer8647219579.blob.core.windows.net/azureml/ExperimentRun/dcid.9d9c76ac-480b-498e-b39f-e03b6a4b1067/logs/azureml/stderrlogs.txt?sv=2019-07-07&sr=b&sig=JGauuOk16ZfwJ3uZJA0xccA4b7BfYCpaKP%2F6JrnW2vM%3D&skoid=4820326e-b09e-4555-860b-ae72befc740d&sktid=a93eafc8-c064-4a88-bc01-47e93068b42b&skt=2023-05-16T11%3A19%3A25Z&ske=2023-05-17T19%3A29%3A25Z&sks=b&skv=2019-07-07&st=2023-05-16T18%3A42%3A06Z&se=2023-05-17T02%3A52%3A06Z&sp=r', 'logs/azureml/stdoutlogs.txt': 'https://mhanauer8647219579.blob.core.windows.net/azureml/ExperimentRun/dcid.9d9c76ac-480b-498e-b39f-e03b6a4b1067/logs/azureml/stdoutlogs.txt?sv=2019-07-07&sr=b&sig=5Pdf0WESgHufPntQrSfgWP5XgKH4iiHHRGYq28WQBmE%3D&skoid=4820326e-b09e-4555-860b-ae72befc740d&sktid=a93eafc8-c064-4a88-bc01-47e93068b42b&skt=2023-05-16T11%3A19%3A25Z&ske=2023-05-17T19%3A29%3A25Z&sks=b&skv=2019-07-07&st=2023-05-16T18%3A42%3A06Z&se=2023-05-17T02%3A52%3A06Z&sp=r'}, 'submittedBy': 'Matthew Hanauer'}\n\n"
+        },
+        {
+          "output_type": "stream",
+          "name": "stderr",
+          "text": "Expected a StepRun object but received <class 'azureml.core.run.Run'> instead.\nThis usually indicates a package conflict with one of the dependencies of azureml-core or azureml-pipeline-core.\nPlease check for package conflicts in your python environment\n"
+        },
+        {
+          "output_type": "execute_result",
+          "execution_count": 37,
+          "data": {
+            "text/plain": "'Finished'"
+          },
+          "metadata": {}
         }
       ],
-      "execution_count": 74,
+      "execution_count": 37,
       "metadata": {
         "jupyter": {
           "source_hidden": false,
@@ -313,7 +272,20 @@
           }
         },
         "gather": {
-          "logged": 1684092558446
+          "logged": 1684263126861
+        }
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Step: Schedule the recurrence manually by looking at the job and scheduling"
+      ],
+      "metadata": {
+        "nteract": {
+          "transient": {
+            "deleting": false
+          }
         }
       }
     }
